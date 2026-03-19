@@ -382,6 +382,17 @@ KEY_ITEMS = {
   {value=0xE1, name="yakrakey"}
 }
 
+OBJECTIVES = {
+  0x1C,
+  0x1D,
+  0x1E,
+  0x2A,
+  0x2B,
+  0x2C,
+  0x2D,
+  0x3A
+}
+
 --
 -- Update key items from the inventory memory segment.
 -- Some items provide callbacks for special handling.  All other
@@ -391,6 +402,33 @@ KEY_ITEMS = {
 --       magic shows up with key items on the tracker, but the 
 --       "Met Spekkio" memory flag is with the rest of the event flags.
 --
+
+function loadObjectives(segment)
+  local loops = 1
+  ::restart::
+  local objective_parse = {}
+  local obj_sum = 0
+  if  segment:ReadUInt8(0x7E0100) == 0x0000 or segment:ReadUInt8(0x7E0100) == 0x01B1 then
+    for i=0,0x07 do
+      table.insert(objective_parse,segment:ReadUInt8(0x7F0220 + i))
+      obj_sum = obj_sum+segment:ReadUInt8(0x7F0220 + i)
+    end
+    if obj_sum == 0 and loops <5 then
+      loops = loops + 1
+      local sec = tonumber(os.clock() + 0.1); 
+      while (os.clock() < sec) do 
+      end 
+      print(loops)
+      goto restart
+    else
+      for i=1,8 do
+        local trackerItem = Tracker:FindObjectForCode("obj"..i)
+          trackerItem.CurrentStage = objective_parse[i]+2
+      end
+    end
+  end
+end
+
 function updateItemsFromInventory(segment)
 
   -- Nothing to track if we're not actively in the game
@@ -424,7 +462,21 @@ function updateItemsFromInventory(segment)
         end
       end
     end -- end key item loop
+    
   end -- end inventory loop
+  -- loop through objectives, looping through inventory to see if they're still there.
+  local objective_checks = {}
+  for k,v in pairs(OBJECTIVES) do
+    local found = false
+    for i=0,0xF1 do
+      local item = segment:ReadUInt8(0x7E2400 + i)
+      if item == v then
+        found = true
+      end
+    end
+    -- if objective is disabled, ignore, else change objective found is false
+    table.insert(objective_checks,found)
+  end -- end key item loop
   
   
   -- Loop the key items and toggle them based on whether or not they were found
@@ -441,6 +493,18 @@ function updateItemsFromInventory(segment)
     end
   end
   
+  -- Loop the objectives and set state to complete if found = false
+  for k,v in pairs(objective_checks) do
+    if  segment:ReadUInt8(0x7E0100) ~= 0x0000 and segment:ReadUInt8(0x7E0100) ~= 0x01B1 then
+      local trackerItem = Tracker:FindObjectForCode("obj"..k)
+      if v == false then
+        if trackerItem.Active == true then
+          trackerItem.CurrentStage = 71
+        end
+      end
+    end
+  end
+
   -- Check if this puts the player in Go Mode
   handleGoMode()
   
@@ -1450,3 +1514,4 @@ ScriptHost:AddMemoryWatch("Scaling", 0x7E2881, 1, updateScaling)
 ScriptHost:AddMemoryWatch("Events", 0x7F0000, 512, updateEventsAndBosses)
 ScriptHost:AddMemoryWatch("Inventory", 0x7E2400, 0xF2, updateItemsFromInventory)
 ScriptHost:AddMemoryWatch("Chests", 0x7F0000, 0x20, updateChests)
+ScriptHost:AddMemoryWatch("ObjectiveInitLoad", 0x7E0100, 512, loadObjectives,1)

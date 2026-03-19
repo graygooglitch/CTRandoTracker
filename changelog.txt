@@ -131,3 +131,6 @@ v0.1.4
 		- Death Peak Tab and Chests
 		- Proto Dome Portal Sparkle
 		- Geno Dome Tabs and Chests
+
+V0.1.5
++ Objective Auto-tracking

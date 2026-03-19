@@ -84,6 +84,51 @@
 			}
 		]
 	},
+	"objective_grid":
+	{
+
+	
+		"type": "itemgrid",
+		"h_alignment": "left",
+		"v_alignment": "center",
+		"item_margin": "0,0",
+		"item_size": 150,
+		"rows":
+		[
+			["obj1","obj2"],
+			["obj3","obj4"],
+		    ["obj5","obj6"],
+			["obj7","obj8"]
+		]
+	},
+	"broadcast_objective_grid":
+	{
+
+	
+		"type": "itemgrid",
+		"h_alignment": "stretch",
+		"item_margin": "0,5",
+		"item_size": 125,
+		"rows":
+		[
+			["obj1","obj2","obj3","obj4"],
+		    ["obj5","obj6","obj7","obj8"]
+		]
+	},
+	"broadcast_tracker_grid":
+	{
+		"type": "itemgrid",
+		"item_margin": "3,3",
+		"item_size":50,
+		"h_alignment": "stretch",
+		"rows":
+		[
+			[ "benthilt", "bentsword", "masamune", "grandleon",  "heromedal", "seed", "bikekey", "yakrakey", "tomapop"],
+			[ "gatekey", "dreamstone", "rubyknife", "rainbowshell", "prismshard", "tools", "racelog", "dactyl", "jerky"],
+			[ "pendant1", "pendant2", "ctrigger", "clone", "moonstone", "sunstone", "jetsoftime", "jetsoftime2","go"],
+			[ "crono","lucca", "marle", "frog","robo", "ayla", "magus", "scale", "bucket"]
+		]
+	},
 	"flag_grid":
 	{
 		"type": "array",
@@ -99,22 +144,23 @@
 				[
 					{
 						"type": "array",
-						"h_alignment": "center",
+						"h_alignment": "right",
 						"item_margin": "1,1",
 						"content":
 						[
-              {
-                "type": "item",
-						    "item": "Flag_Chronosanity_off",
-						    "scale": 0.90,
-                "margin": "0,5"
-              }
+              				{
+                				"type": "item",
+						    	"item": "Flag_Chronosanity_off",
+						    	"scale": 0.90,
+                				"margin": "0,5"
+              				}
 						]
 					}
 				]
 			}
 		]
 	},
+	
 	"tracker_capture_item":
 	{
 		"type": "container",
@@ -146,9 +192,8 @@
 				{
 					"type": "dock",
 					"dock": "bottom",
-					"h_alignment": "stretch",
 					"content":
-					[
+					[ 
 						{
 							"type": "dock",
 							"dock": "left",
@@ -167,7 +212,7 @@
 								{
 									"type": "group",
 									"header": "Bosses",
-									"dock": "center",
+									"dock": "left",
 									"content":
 									{
 										"type": "layout",
@@ -177,23 +222,50 @@
 								{
 									"type": "group",
 									"header": "Events",
+									"dock": "left",
 									"content":
 									{
 										"type": "layout",
 										"key": "event_grid"
 									}
-								},
+								}
+							
 							]
 						},
 						{
-							"type": "group",
-							"header": "Flags",
+							"type": "dock",
+							"dock": "right",
 							"content":
-							{
-								"type": "layout",
-								"key": "flag_grid"
-							}
-						},
+							[
+								{
+									"type": "group",
+									"header": "Flags",
+									"content":
+									{
+										"type": "layout",
+										"key": "flag_grid"
+									}
+								}
+							]
+							
+						}
+					]
+				},
+				{
+					"type": "dock",
+					"dock": "right",
+					"content":
+					[
+								{
+									"type": "group",
+									"header": "Objectives",
+									"dock": "left",
+									"content":
+									{
+										"type": "layout",
+										"key": "objective_grid"
+									}
+								}
 					]
 				},
 				{
