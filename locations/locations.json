@@ -978,79 +978,79 @@
 								"name": "Rust Tyrano",
 								"hosted_item": "rusttyranoboss"
 							},
-              				{
+              {
 								"name": "Entrance Throne Room",
-                				"visibility_rules": ["chronosanity"],
+                "visibility_rules": ["chronosanity"],
 								"chest_unopened_img": "images/kino.png",
 								"chest_opened_img": "images/kiyes.png",
 								"item_count": 2
 							},
               				{
 								"name": "Cave After Throne",
-                				"visibility_rules": ["chronosanity"],
+                "visibility_rules": ["chronosanity"],
 								"chest_unopened_img": "images/kino.png",
 								"chest_opened_img": "images/kiyes.png",
 								"item_count": 1
 							},
 							{
 								"name": "Behind Cave Skull",
-                				"visibility_rules": ["chronosanity"],
+                "visibility_rules": ["chronosanity"],
 								"chest_unopened_img": "images/kino.png",
 								"chest_opened_img": "images/kiyes.png",
 								"item_count": 1
 							},
 							{
 								"name": "Behind Drop Skull Sparkle",
-                				"visibility_rules": ["chronosanity"],
+                "visibility_rules": ["chronosanity"],
 								"chest_unopened_img": "images/tabsparkle.png",
 								"chest_opened_img": "images/sparklechecked.png",
 								"item_count": 1
 							},
 							{
 								"name": "Caverns After Drop",
-                				"visibility_rules": ["chronosanity"],
+                "visibility_rules": ["chronosanity"],
 								"chest_unopened_img": "images/kino.png",
 								"chest_opened_img": "images/kiyes.png",
 								"item_count": 3
 							},
 							{
 								"name": "Caverns Sparkle After Drop",
-                				"visibility_rules": ["chronosanity"],
+                "visibility_rules": ["chronosanity"],
 								"chest_unopened_img": "images/tabsparkle.png",
 								"chest_opened_img": "images/sparklechecked.png",
 								"item_count": 1
 							},
 							{
 								"name": "Ladder Caverns",
-                				"visibility_rules": ["chronosanity"],
+                "visibility_rules": ["chronosanity"],
 								"chest_unopened_img": "images/kino.png",
 								"chest_opened_img": "images/kiyes.png",
 								"item_count": 2
 							},
 							{
 								"name": "Left Switch Cave",
-                				"visibility_rules": ["chronosanity"],
+                "visibility_rules": ["chronosanity"],
 								"chest_unopened_img": "images/kino.png",
 								"chest_opened_img": "images/kiyes.png",
 								"item_count": 1
 							},
 							{
 								"name": "Chest Drop",
-                				"visibility_rules": ["chronosanity"],
+                "visibility_rules": ["chronosanity"],
 								"chest_unopened_img": "images/kino.png",
 								"chest_opened_img": "images/kiyes.png",
 								"item_count": 1
 							},
 							{
 								"name": "Right Skull Sparkle",
-                				"visibility_rules": ["chronosanity"],
+                "visibility_rules": ["chronosanity"],
 								"chest_unopened_img": "images/tabsparkle.png",
 								"chest_opened_img": "images/sparklechecked.png",
 								"item_count": 1
 							},
 							{
 								"name": "Kino's Cell",
-                				"visibility_rules": ["chronosanity"],
+                "visibility_rules": ["chronosanity"],
 								"chest_unopened_img": "images/kino.png",
 								"chest_opened_img": "images/kiyes.png",
 								"item_count": 1
@@ -1934,21 +1934,21 @@
 						[
 							{
 								"name": "Jerky Trade (Give Jerky in 600, Talk to 1000 Mayor)",
-                				"visibility_rules": [""],
+                "visibility_rules": [""],
 								"access_rules":["jerky","{}"],
 								"hosted_item": "jerkytrade"
 							},
 							{
 								"name": "Upstairs Chest",
-                				"visibility_rules": ["chronosanity"],
+                "visibility_rules": ["chronosanity"],
 								"chest_unopened_img": "images/kino.png",
 								"chest_opened_img": "images/kiyes.png",
 								"item_count": 1
 							},
               						{
 								"name": "Sealed Chests",
-                				"visibility_rules": ["chronosanity"],
-                				"access_rules": ["pendant2"],
+                "visibility_rules": ["chronosanity"],
+                "access_rules": ["pendant2"],
 								"chest_unopened_img": "images/sealedchest.png",
 								"chest_opened_img": "images/unsealedchest.png",
 								"item_count": 2
