@@ -71,13 +71,6 @@
 		"codes": "gatekey"
 	},
 	{
-		"name": "Magic",
-		"type": "toggle",
-		"loop": "true",
-		"img": "images/magic.png",
-		"codes": "magic"
-	},
-	{
 		"name": "Bent Hilt",
 		"type": "toggle",
 		"loop": "true",
@@ -351,11 +344,11 @@
 		"codes": "tomaspop,tomapop,pop,tomassoda,tomasoda,soda"
 	},
 	{
-		"name": "Grand Leon",
+		"name": "Masamune2",
 		"type": "toggle",
 		"loop": "true",
 		"img": "images/masamune2.png",
-		"codes": "grandleon"
+		"codes": "masamune2"
 	},
 	{
 		"name": "Ruby Knife",
@@ -392,13 +385,6 @@
 		"img": "images/epoch.png",
 		"codes": "jetsoftime2"
 	},	
-  	{
-		"name": "Validation Cat",
-		"type": "toggle",
-		"loop": "true",
-		"img": "images/validationcat.png",
-		"codes": "cat, validationcat"
-	},
   	{
 		"name": "Yakra Key",
 		"type": "toggle",
@@ -709,40 +695,6 @@
 		"codes": "mudimpboss"
 	},
 	// Flags
-	{
-    "name": "Character Locks",
-    "type": "progressive",
-    "allow_disabled": false,
-    "initial_stage_idx": 1,
-    "loop": true,
-    "stages": [
-      {
-        "img": "images/Flag_CharLock_on.png",
-        "codes": "Flag_CharLock_on,"
-      },
-      {
-        "img": "images/Flag_CharLock_off.png",
-        "codes": "Flag_CharLock_off"
-      }
-    ]
-  },
-  {
-    "name": "Early Pendant",
-    "type": "progressive",
-    "allow_disabled": false,
-    "initial_stage_idx": 0,
-    "loop": true,
-    "stages": [
-      {
-        "img": "images/Flag_EarlyPendant_off.png",
-        "codes": "Flag_EarlyPendant_off"
-      },
-      {
-        "img": "images/Flag_EarlyPendant_on.png",
-        "codes": "Flag_EarlyPendant_on, earlypendant"
-      }
-    ]
-  },
   {
     "name": "Chronosanity",
     "type": "progressive",
@@ -757,23 +709,6 @@
       {
         "img": "images/Flag_Chronosanity_on.png",
         "codes": "Flag_Chronosanity_on, chronosanity"
-      }
-    ]
-  },
-  {
-    "name": "Epoch Fail",
-    "type": "progressive",
-    "allow_disabled": false,
-    "initial_stage_idx": 0,
-    "loop": true,
-    "stages": [
-      {
-        "img": "images/Flag_Epoch_Fail_off.png",
-        "codes": "Flag_Epoch_Fail_off"
-      },
-      {
-        "img": "images/Flag_Epoch_Fail_on.png",
-        "codes": "Flag_Epoch_Fail_on, epochfail"
       }
     ]
   },

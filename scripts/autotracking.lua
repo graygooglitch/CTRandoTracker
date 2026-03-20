@@ -6,7 +6,7 @@ print("")
 print("Active Auto-Tracker Configuration")
 print("---------------------------------------------------------------------")
 if AUTOTRACKER_ENABLE_DEBUG_LOGGING then
-    print("Enable Debug Logging:        ", "false")
+    print("Enable Debug Logging:        ", "true")
 end
 print("---------------------------------------------------------------------")
 print("")
@@ -143,8 +143,7 @@ end
 
 --
 -- Handle items that can also show up in character's equipment slots.
--- This includes the Hero Medal and Robo's Ribbon. Masamune is handled
--- separately since it is more complicated.
+-- This includes the Hero Medal and the Masamune.
 --
 function handleEquippableItem(keyItem)
 
@@ -181,22 +180,10 @@ end
 -- This is a callback function for special processing.
 --
 -- Values can be specified as a scalar number or as a table with multiple
--- item IDs.  This was used to track both forms of the Masamune before
--- the Grand Leon change that split them into separate key items.
+-- item IDs.
 --
 -- NOTE: Key items must be defined after the callback
 --       functions are defined or they won't trigger properly.
---
--- NOTE: The Ruby Knife is removed from the inventory when you reach the Mammon Machine
---       at the end of Ocean Palace.  There wasn't a convenient memory flag for that 
---       event, so instead we're checking to see if the sealed door in Zeal Palace has 
---       been opened to meet the turn-in condition.
---
--- TODO: The sealed door to Ocean Palace was changed.  When going through Magus' Castle
---       the Ruby Knife isn't required anymore.  Check to see how we handle that case now.
---       I'm guessing the item turnin logic will cause it to be flagged as collected even
---       if it wasn't once the door is opened.
---
 --
 KEY_ITEMS = {
   {value=0x3D, name="masamune", callback=handleEquippableItem, address=0x7E2769},
@@ -209,7 +196,7 @@ KEY_ITEMS = {
   {value=0xD7, name="gatekey"},
   {value=0xD8, name="prismshard"},
   {value=0xD9, name="ctrigger"},
-  {value=0x42, name="grandleon", callback=handleEquippableItem, address=0x7E2769},
+  {value=0x42, name="masamune2", callback=handleEquippableItem, address=0x7E2769},
   {value=0xDA, name="tools", callback=handleItemTurnin, address=0x7F019E, flag=0x40},
   {value=0xDB, name="jerky", callback=handleItemTurnin, address=0x7F01D2, flag=0x04},
   {value=0xDC, name="dreamstone"},
@@ -291,8 +278,7 @@ function updateItemsFromInventory(segment)
         end
       elseif type(v.value) == "table" then
         -- Loop through possible IDs for items with more than one
-        -- Not used since the Masamume/Grand Leon change, but leaving this in
-        -- in case it's needed in the future.
+        -- Not currently used but leaving this in case it's needed in the future.
         for k2, v2 in pairs(v.value) do
           if item == v2 then
             v.found = true
@@ -526,13 +512,6 @@ function updateEventsAndBosses(segment)
 		updateEvent("@Last Village Nu Hut/Sparkle Behind Nu", segment, 0x7F014A, 0x10)
 
   end -- end event tracking
-    
-  -- End of Time
-  -- Track magic here. This is the flag that is set after Spekkio challenges you 
-  -- to a practice fight after learning magic. 
-  local magic = Tracker:FindObjectForCode("magic")
-  local spekkioByte = segment:ReadUInt8(0x7F00E1)
-  magic.Active = (spekkioByte & 0x02) ~= 0
 
   handleGoMode()
 end
@@ -600,9 +579,7 @@ function updateParty(segment)
 end
 
 --
--- Update the total collection count from normal event checks,
--- chest checks, and sealed treasure checks.
--- This updates the check counter on the tracker.
+-- Update the checklist of number of objectives completed.
 --
 function updateChecklistCount(segment)
 
