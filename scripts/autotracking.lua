@@ -6,15 +6,10 @@ print("")
 print("Active Auto-Tracker Configuration")
 print("---------------------------------------------------------------------")
 if AUTOTRACKER_ENABLE_DEBUG_LOGGING then
-    print("Enable Debug Logging:        ", "false")
+    print("Enable Debug Logging:        ", "true")
 end
 print("---------------------------------------------------------------------")
 print("")
-
---
--- Script variables
---
-CHECK_COUNTERS = {chests = 0, sealed_chests = 0, base_checks = 0}
 
 --
 -- Invoked when the auto-tracker is activated/connected
@@ -44,33 +39,6 @@ function itemsOnlyTracking()
 end
 
 --
--- Check if the tracker is in Lost Worlds mode
---
-function lostWorldsMode()
-
-  return string.find(Tracker.ActiveVariantUID, "lost_world")
-
-end
-
---
--- Check if the tracker is in Vanilla Rando mode
---
-function vanillaRandoMode()
-
-  return string.find(Tracker.ActiveVariantUID, "vanilla")
-
-end
-
---
--- Check if the tracker is in Legacy of Cyrus mode
---
-function legacyOfCyrusMode()
-
-  return string.find(Tracker.ActiveVariantUID, "legacy_of_cyrus")
-
-end
-
---
 -- Check if the tracker is in Chronosanity mode
 --
 function chronosanityMode()
@@ -91,19 +59,7 @@ function inGame()
  end
 
 --
--- Handle toggling the green "Go" button on the tracker.  "Go Mode" is
--- achieved when the player has acquired the correct items and/or characters
--- to beat the game.  There are three different paths that can be taken:
---   - Through 65 Million BC (Gate Key, Dream Stone, Ruby Knife)
---   - Through Magus' Castle 600AD (Frog, Repaired Masamune)
---   - Through Death Peak/Black Omen (Access to 2300AD, C. Trigger, Clone)
---
---  NOTE: The Ruby Knife is no longer required when accessing Ocean Palace
---        via Magus' Castle as of version 3.0 of the randomizer.
---
--- In Lost Worlds mode, there are two paths:
---   - Through Death Peak/Black Omen (C. Trigger and Clone)
---   - Through the Ocean Palace (Ruby Knife and Dreamstone (Black Tyrano defeated))
+-- Handle toggling the green "Go" button on the tracker.
 --
 function handleGoMode()
   local jetsoftime2 = Tracker:FindObjectForCode("jetsoftime2")
@@ -112,7 +68,7 @@ function handleGoMode()
   local gatekey = Tracker:FindObjectForCode("gatekey")
   local rseries = Tracker:FindObjectForCode("rseriesboss")
   local apoc = Tracker:FindObjectForCode("apoc")
-  local pendant2 = Tracker:FindObjectForCode("pendant2")
+  local pendant = Tracker:FindObjectForCode("pendant")
   local rubyknife = Tracker:FindObjectForCode("rubyknife")
   local magus = Tracker:FindObjectForCode("magus")
   local eot = Tracker:FindObjectForCode("eot")
@@ -124,11 +80,11 @@ function handleGoMode()
     goMode = 
       (gatekey.Active and bucket.Active and eot.Active) or  -- Lazy attempt at gate key EoT rules (need 4 chars)
       (rseries.Active and bucket.Active) or -- R series for EoT
-      (pendant2.Active and rubyknife.Active) or -- Impossible Lavos Route
+      (pendant.CurrentStage == 2 and rubyknife.Active) or -- Impossible Lavos Route
       (magus.Active and rubyknife.Active and magusboss.Active) or -- Impossible Lavos Route (magus magus)
       (magus.Active and rubyknife.Active and blacktyranoboss.Active) or -- Impossible Lavos Route (tyrano magus)   
       (jetsoftime2.Active and apoc.Active) or -- epoch crash   
-      (jetsoftime2.Active and omen.Active and algetty.active ) -- Omen Route
+      (jetsoftime2.Active and omen.Active and algetty.Active ) -- Omen Route
 
 
   local goButton = Tracker:FindObjectForCode("gomode")
@@ -186,121 +142,8 @@ function updateBoss(name, segment, address, flag)
 end
 
 --
--- Handle the Zenan Bridge flags (cook's item and Zombor)
---
--- The flag that goes high when you get the item from the Guardia cook
--- goes back low after you beat Zombor. Check for this case here so that
--- reloaded saves don't incorrectly track the cook's item.
---
---[[ function handleZenanBridge(segment)
-
-  local zombor = Tracker:FindObjectForCode("zomborboss")
-  -- NOTE: This marks complete when the battle starts, not when Zombor dies
-  --       There isn't a specific memory flag for Zombor's death
-  updateBoss("zomborboss", segment, 0x7F0101, 0x02)
-  local completed = 0
-  
-  -- If Zombor was defeated then mark the cook's item as active regardless
-  -- of the flag's state.  Only track this if the tracker is not set to 
-  -- "Items Only" tracking mode.
-  if not itemsOnlyTracking() and not lostWorldsMode() then
-    if zombor.Active then
-      local cookItem = Tracker:FindObjectForCode("@Zenan Bridge/Cook's Rations")
-      if not cookItem.Owner.ModifiedByUser then
-        cookItem.AvailableChestCount = 0
-        completed = 1
-      end
-    else
-      completed = updateEvent("@Zenan Bridge/Cook's Rations", segment, 0x7F00A9, 0x10)
-    end
-  end
-  
-  return completed
-  
-end ]]
-
---
--- The Melchior's Refinements key item doesn't have a simple
--- memory flag. Instead, the bit goes high when you talk to 
--- the king after the trial and Melchior shows up, then goes
--- back low after you talk to Melchior and obtain the key item.
---
--- Assume that if Yakra XIII is dead and the Melchior bit is
--- low then the key item has been acquired.
---
-function handleMelchiorRefinements(segment)
-  if itemsOnlyTracking() or legacyOfCyrusMode() then
-    return 0
-  end
-
-  local yakraxiii = Tracker:FindObjectForCode("yakraxiiiboss")
-  local melchior = Tracker:FindObjectForCode("@Guardia Castle Present/Melchior's Refinements")
-  local completed = 0
-  
-  if melchior.Owner.ModifiedByUser or itemsOnlyTracking() then
-    -- Break out early if the item has been modified by the user
-    return
-  end
-  
-  if yakraxiii.Active then
-    local value = segment:ReadUInt8(0x7F006D)
-    if (value & 0x10) == 0 then
-      melchior.AvailableChestCount = 0
-      completed = 1
-    else
-      melchior.AvailableChestCount = 1
-    end
-  else
-    melchior.AvailableChestCount = 1
-  end
-  
-  return completed
-  
-end
-
---
--- Handle the moonstone/sunstone.
--- This is a progressive item and is handled differently 
--- from the other key items.
---
-function handleMoonstone(keyItem) 
-
-  moonstone = Tracker:FindObjectForCode("moonstone")
-  currentStage = moonstone.CurrentStage
-  
-  -- Special handling for when the moonstone has been left in sun keep
-  -- but hasn't been picked up yet.  
-  local moonstoneState = AutoTracker:ReadU8(0x7F013A, 0)
-  if ((moonstoneState & 0x04) ~= 0 and
-      (moonstoneState & 0x40) == 0) then
-    -- Moonstone was dropped off but not picked up
-    -- Set moonstone active on the tracker so it doens't get cleared
-    moonstone.CurrentStage = 1
-    return
-  end
-  
-  if keyItem.name == "moonstone" then
-    if keyItem.found then
-      moonstone.CurrentStage = 1
-    elseif currentStage == 1 then
-      -- Reset only works if sunstone comes before moonstone in the
-      -- key items table.  Do not rearrange the table.
-      moonstone.CurrentStage = 0
-    end
- -- elseif keyItem.name == "sunstone" then
-   -- if keyItem.found then
-     -- moonstone.CurrentStage = 2
-    --elseif currentStage == 2 then
-      --moonstone.CurrentStage = 0
-    --end
-  end
-  
-end
-
---
 -- Handle items that can also show up in character's equipment slots.
--- This includes the Hero Medal and Robo's Ribbon. Masamune is handled
--- separately since it is more complicated.
+-- This includes the Hero Medal and the Masamune.
 --
 function handleEquippableItem(keyItem)
 
@@ -308,8 +151,21 @@ function handleEquippableItem(keyItem)
   local itemOwned = keyItem.found or equipmentSlot == keyItem.value
   
   local trackerItem = Tracker:FindObjectForCode(keyItem.name)  
-  if trackerItem and not trackerItem.Owner.ModifiedByUser then
-    trackerItem.Active = itemOwned
+
+  if keyItem.type == "toggle" then
+    if trackerItem and not trackerItem.Owner.ModifiedByUser then
+      trackerItem.Active = itemOwned
+    else
+      printDebug("Update Items: Unable to find tracker item: " .. name)
+    end
+  elseif keyItem.type == "progressive" then
+    if trackerItem and not trackerItem.Owner.ModifiedByUser then
+      if itemOwned and keyItem.stage > trackerItem.CurrentStage then
+        trackerItem.CurrentStage = keyItem.stage
+      end
+    else
+      printDebug("Update Items: Unable to find tracker item: " .. name)
+    end
   end
 
 end
@@ -337,98 +193,80 @@ end
 -- This is a callback function for special processing.
 --
 -- Values can be specified as a scalar number or as a table with multiple
--- item IDs.  This was used to track both forms of the Masamune before
--- the Grand Leon change that split them into separate key items.
+-- item IDs.
 --
 -- NOTE: Key items must be defined after the callback
 --       functions are defined or they won't trigger properly.
 --
--- NOTE: The Ruby Knife is removed from the inventory when you reach the Mammon Machine
---       at the end of Ocean Palace.  There wasn't a convenient memory flag for that 
---       event, so instead we're checking to see if the sealed door in Zeal Palace has 
---       been opened to meet the turn-in condition.
---
--- TODO: The sealed door to Ocean Palace was changed.  When going through Magus' Castle
---       the Ruby Knife isn't required anymore.  Check to see how we handle that case now.
---       I'm guessing the item turnin logic will cause it to be flagged as collected even
---       if it wasn't once the door is opened.
---
---
 KEY_ITEMS = {
-  {value=0x3D, name="masamune", callback=handleEquippableItem, address=0x7E2769},
-  {value=0x50, name="bentsword"},
-  {value=0x51, name="benthilt"},
-  {value=0xB3, name="heromedal", callback=handleEquippableItem, address=0x7E276A},
-  --{value=0xB8, name="roboribbon", callback=handleEquippableItem, address=0x7E271A},
-  {value=0xD4, name="seed"},
-  {value=0xD5, name="bikekey"},
-  {value=0xD6, name="pendant1"},
-  {value=0xD7, name="gatekey"},
-  {value=0xD8, name="prismshard"},
-  {value=0xD9, name="ctrigger"},
-  {value=0x42, name="grandleon", callback=handleEquippableItem, address=0x7E2769},
-  {value=0xDA, name="tools", callback=handleItemTurnin, address=0x7F019E, flag=0x40},
-  {value=0xDB, name="jerky", callback=handleItemTurnin, address=0x7F01D2, flag=0x04},
-  {value=0xDC, name="dreamstone"},
-  {value=0xDD, name="racelog"},
-  {value=0xDE, name="moonstone", callback=handleItemTurnin, address=0x7F013A, flag=0x04},
-  {value=0xDF, name="sunstone"},
-  {value=0xE0, name="rubyknife"},
-  {value=0xE2, name="clone"},
-  {value=0xE3, name="tomapop", callback=handleItemTurnin, address=0x7F01A3, flag=0x80},
-  {value=0xE9, name="jetsoftime", callback=handleItemTurnin, address=0x7F00BA, flag=0x80},
-  {value=0xEA, name="pendant2"},
-  {value=0xEB, name="rainbowshell"},
-  {value=0xE1, name="yakrakey"}
-}
+  {value=0x3D, name="masamune", callback=handleEquippableItem, address=0x7E2769,type="progressive",stage=1},
+  {value=0x50, name="bentsword",type="toggle"},
+  {value=0x51, name="benthilt",type="toggle"},
+  {value=0xB3, name="heromedal", callback=handleEquippableItem, address=0x7E276A,type="toggle"},
+  {value=0xD4, name="seed",type="toggle"},
+  {value=0xD5, name="bikekey",type="toggle"},
+  {value=0xD6, name="pendant",type="progressive",stage=1},
+  {value=0xD7, name="gatekey",type="toggle"},
+  {value=0xD8, name="rainbowshell",type="progressive",stage=2},
+  {value=0xD9, name="clonectrigger",type="progressive",stage=2},
+  {value=0x42, name="masamune", callback=handleEquippableItem, address=0x7E2769,type="progressive",stage=2},
+  {value=0xDA, name="tools", callback=handleItemTurnin, address=0x7F019E, flag=0x40,type="toggle"},
+  {value=0xDB, name="jerky", callback=handleItemTurnin, address=0x7F01D2, flag=0x04,type="toggle"},
+  {value=0xDC, name="dreamstone",type="toggle"},
+  {value=0xDD, name="racelog",type="toggle"},
+  {value=0xDE, name="moonstone", callback=handleItemTurnin, address=0x7F013A,type="toggle", flag=0x04},
+  {value=0xDF, name="sunstone",type="toggle"},
+  {value=0xE0, name="rubyknife",type="toggle"},
+  {value=0xE2, name="clonectrigger",type="progressive",stage=1},
+  {value=0xE3, name="tomapop", callback=handleItemTurnin, address=0x7F01A3, flag=0x80,type="toggle"},
+  {value=0xE9, name="jetsoftime", callback=handleItemTurnin, address=0x7F00BA, flag=0x80,type="toggle"},
+  {value=0xEA, name="pendant",type="progressive",stage=2},
+  {value=0xEB, name="rainbowshell",type="progressive",stage=1},
+  {value=0xE1, name="yakrakey",type="toggle"},
 
-OBJECTIVES = {
-  0x1C,
-  0x1D,
-  0x1E,
-  0x2A,
-  0x2B,
-  0x2C,
-  0x2D,
-  0x3A
+  -- Objective Items
+  {value=0x1C, name="objective1", objective=true},
+  {value=0x1D, name="objective2", objective=true},
+  {value=0x1E, name="objective3", objective=true},
+  {value=0x2A, name="objective4", objective=true},
+  {value=0x2B, name="objective5", objective=true},
+  {value=0x2C, name="objective6", objective=true},
+  {value=0x2D, name="objective7", objective=true},
+  {value=0x3A, name="objective8", objective=true},
 }
-
---
--- Update key items from the inventory memory segment.
--- Some items provide callbacks for special handling.  All other
--- items just get directly toggled on the tracker.  
--- 
--- NOTE: Magic is tracked with events and bosses.  The marker for
---       magic shows up with key items on the tracker, but the 
---       "Met Spekkio" memory flag is with the rest of the event flags.
---
 
 function loadObjectives(segment)
-  local loops = 1
-  ::restart::
   local objective_parse = {}
   local obj_sum = 0
-  if  segment:ReadUInt8(0x7E0100) == 0x0000 or segment:ReadUInt8(0x7E0100) == 0x01B1 then
+  local mapId = AutoTracker:ReadU16(0x7E0100)
+  if mapId == 0x0000 or mapId == 0x01B1 then
     for i=0,0x07 do
-      table.insert(objective_parse,segment:ReadUInt8(0x7F0220 + i))
-      obj_sum = obj_sum+segment:ReadUInt8(0x7F0220 + i)
+      obj_id = segment:ReadUInt8(0x7F0220 + i)
+      table.insert(objective_parse, obj_id)
+      obj_sum = obj_sum + obj_id
     end
-    if obj_sum == 0 and loops <5 then
-      loops = loops + 1
-      local sec = tonumber(os.clock() + 0.1); 
-      while (os.clock() < sec) do 
-      end 
-      print(loops)
-      goto restart
-    else
+
+    -- Sanity check to make sure we have real objective data
+    -- Map 0x0000 sets the objectives, but the pendulum scene
+    -- (0x01B1) seems to set them back to zero. They are then
+    -- set again when the map transitions to the battle mode
+    -- screen (map 0x0000 again)
+    if obj_sum ~= 0 then
       for i=1,8 do
         local trackerItem = Tracker:FindObjectForCode("obj"..i)
-          trackerItem.CurrentStage = objective_parse[i]+2
+          trackerItem.CurrentStage = objective_parse[i]+1
       end
+    else
+      printDebug("Objective data read failed!")
     end
   end
 end
 
+--
+-- Update key items from the inventory memory segment.
+-- Some items provide callbacks for special handling.  All other
+-- items just get directly toggled on the tracker.
+--
 function updateItemsFromInventory(segment)
 
   -- Nothing to track if we're not actively in the game
@@ -453,8 +291,7 @@ function updateItemsFromInventory(segment)
         end
       elseif type(v.value) == "table" then
         -- Loop through possible IDs for items with more than one
-        -- Not used since the Masamume/Grand Leon change, but leaving this in
-        -- in case it's needed in the future.
+        -- Not currently used but leaving this in case it's needed in the future.
         for k2, v2 in pairs(v.value) do
           if item == v2 then
             v.found = true
@@ -462,45 +299,45 @@ function updateItemsFromInventory(segment)
         end
       end
     end -- end key item loop
-    
   end -- end inventory loop
-  -- loop through objectives, looping through inventory to see if they're still there.
-  local objective_checks = {}
-  for k,v in pairs(OBJECTIVES) do
-    local found = false
-    for i=0,0xF1 do
-      local item = segment:ReadUInt8(0x7E2400 + i)
-      if item == v then
-        found = true
-      end
-    end
-    -- if objective is disabled, ignore, else change objective found is false
-    table.insert(objective_checks,found)
-  end -- end key item loop
-  
   
   -- Loop the key items and toggle them based on whether or not they were found
+  local objective_checks = {}
   for k,v in pairs(KEY_ITEMS) do
-    if v.callback then
+    if v.objective then
+      -- This item is an objective marker
+      -- When objective markers to away, the objective is complete
+      table.insert(objective_checks, v.found)
+    elseif v.callback then
       v.callback(v)
     else
       local trackerItem = Tracker:FindObjectForCode(v.name)
-      if trackerItem and not trackerItem.Owner.ModifiedByUser then
-        trackerItem.Active = v.found
-      else
-        printDebug("Update Items: Unable to find tracker item: " .. name)
+      if v.type == "toggle" then
+        if trackerItem and not trackerItem.Owner.ModifiedByUser then
+          trackerItem.Active = v.found
+        else
+          printDebug("Update Items: Unable to find tracker item: " .. name)
+        end
+      elseif v.type == "progressive" then
+        if trackerItem and not trackerItem.Owner.ModifiedByUser then
+          if v.found and v.stage > trackerItem.CurrentStage then
+            trackerItem.CurrentStage = v.stage
+          end
+        else
+          printDebug("Update Items: Unable to find tracker item: " .. name)
+        end
       end
+      
     end
   end
   
   -- Loop the objectives and set state to complete if found = false
+  mapId = AutoTracker:ReadU16(0x7E0100)
   for k,v in pairs(objective_checks) do
-    if  segment:ReadUInt8(0x7E0100) ~= 0x0000 and segment:ReadUInt8(0x7E0100) ~= 0x01B1 then
+    if mapId ~= 0x0000 and mapId ~= 0x01B1 then
       local trackerItem = Tracker:FindObjectForCode("obj"..k)
       if v == false then
-        if trackerItem.Active == true then
-          trackerItem.CurrentStage = 71
-        end
+        trackerItem.CurrentStage = 70
       end
     end
   end
@@ -688,39 +525,7 @@ function updateEventsAndBosses(segment)
 		updateEvent("@Last Village Nu Hut/Sparkle Behind Nu", segment, 0x7F014A, 0x10)
 
   end -- end event tracking
-  
-  --CHECK_COUNTERS.base_checks = keyItemChecksDone
-  
-  -- End of Time
-  -- Track magic here. This is the flag that is set after Spekkio challenges you 
-  -- to a practice fight after learning magic. 
-  local magic = Tracker:FindObjectForCode("magic")
-  local spekkioByte = segment:ReadUInt8(0x7F00E1)
-  magic.Active = (spekkioByte & 0x02) ~= 0
-  
-  -- Masamune
-  -- The Masamune tracker item is activated when the player reforges the Masamune
-  -- after collecting the hilt and blade.  The original version of the tracker
-  -- tracked this via the inventory, but it can be tracked easier using the event
-  -- flag set high after Melchior reforges the sword.  Because it's part of event
-  -- memory, check for the tracker item here.
- -- melchior = Tracker:FindObjectForCode("melchior")
-  --melchior.Active = (segment:ReadUInt8(0x7F0103) & 0x02) ~= 0
-  
-  -- Validation Cat
-  -- This is a bit of a meme check.  Validation Cat refers to Crono's cat.
-  -- Petting Crono's cat in Crono's house "validates" the run.
-  local cat = Tracker:FindObjectForCode("validationcat")
-  local catByte = segment:ReadUInt8(0x7F01A6)
-  cat.Active = (catByte & 0x08) ~= 0
-  
-  -- Handle sealed chest tracking. The chest counter is on all pack variants now
-  -- so count sealed/event chests in all modes.
-  handleSealedChests(segment)
-  
-  -- Check if the Epoch is capable of flight.
-  -- This is used in the Epoch Fail mode of Vanilla Rando
-  updateEvent("@Snail Stop/Attach Epoch Wings", segment, 0x7F00BA, 0x80)
+
   handleGoMode()
 end
 
@@ -737,41 +542,6 @@ function toggleCharacter(name, found)
   else
     printDebug("Unable to find character: " .. name)
   end
-
-end
-
---
--- NOTE: This function is not currently being used.  There is a race
---       condition where the characters are removed before the trial
---       flag is set. If the tracker updates before the trial bit is 
---       set, the characters will still show up as removed.  I am 
---       leaving this function here until I find a reliable way to fix it.
---       Functionally, this means that the characters in slot 2 and 3 will
---       vanish from the tracker until they rejoin after the prison escape.
--- 
---
--- Check to see if the player is in the trial sequence.
--- During Crono's trial sequence in 1000AD in Guardia Castle the
--- two characters in slots 2 and 3 are removed from the party entirely.  
--- This function is used to pause character tracking during the trial to prevent
--- the two characters from being unchecked from the tracker.
---
--- Restart tracking after the characters have rejoined the party.
---
--- NOTE: The byte used to determine if the characters have rejoined seems to count
---       up as the story section progresses.
---   0x01 - Skipped in the randomizer, maybe when the trial is going on?
---   0x02 - Character has been led away to jail
---   0x03 - Party joins back up after the escape
---   0x04 - Party takes the portal to the future
---       
-function inTrialSequence()
-
-  local trialByte = AutoTracker:ReadU8(0x7F0104) & 0x07
-  local trialStarted = trialByte == 2
-  local charsRejoined = trialByte > 2 
-  
-  return trialStarted and not charsRejoined
 
 end
 
@@ -822,29 +592,20 @@ function updateParty(segment)
 end
 
 --
--- Update the total collection count from normal event checks,
--- chest checks, and sealed treasure checks.
--- This updates the check counter on the tracker.
+-- Update the checklist of number of objectives completed.
 --
-function updateCollectionCount(segment)
+function updateChecklistCount(segment)
 
   local counter = Tracker:FindObjectForCode("checklist")
   counter.AcquiredCount = segment:ReadUInt8(0x7F0045)
-  --counter.AcquiredCount = tonumber(counter.AcquiredCount)
   
-  
-  --counter.AcquiredCount = CHECK_COUNTERS.chests + CHECK_COUNTERS.sealed_chests + CHECK_COUNTERS.base_checks
- handleGoMode()
+  handleGoMode()
 end
 
 function updateScaling(segment)
 
   local counter = Tracker:FindObjectForCode("scale")
   counter.AcquiredCount = segment:ReadUInt8(0x7E2881)
-  --counter.AcquiredCount = tonumber(counter.AcquiredCount)
-  
-  
-  --counter.AcquiredCount = CHECK_COUNTERS.chests + CHECK_COUNTERS.sealed_chests + CHECK_COUNTERS.base_checks
 
 end
 
@@ -865,71 +626,6 @@ function updateEoT(segment)
 end
 
 --
--- Handle a single sealed chest location.
---
-function handleSealedChestLocation(segment, locationName, flags)
-  
-  local location = Tracker:FindObjectForCode(locationName)
-  if location == nil then
-    return 0
-  end
-  
-  local treasuresCollected = 0
-  local value = 0
-  for _, flag in pairs(flags) do
-    value = segment:ReadUInt8(flag[1])
-    if (value & flag[2]) ~= 0 then
-      treasuresCollected = treasuresCollected + 1
-    end
-  end
-  
-  location.AvailableChestCount = location.ChestCount - treasuresCollected
-  return treasuresCollected
-  
-end
-
---
--- Handle autotracking for the sealed chests that are part
--- of Chronosanity mode.
---
---[[ function handleSealedChests(segment)
-
-  local total = 0
-  ------------
-  -- 600 AD --
-  ------------
-  total = handleSealedChestLocation(segment, "@Porre Elder's House/Sealed Chests", {{0x7F01D3, 0x10}, {0x7F01D3, 0x20}})
-  total = total + handleSealedChestLocation(segment, "@Truce Inn Past/Sealed Chest", {{0x7F014A, 0x80}})
-  total = total + handleSealedChestLocation(segment, "@Guardia Forest Past/Sealed Chest", {{0x7F01D2, 0x80}})
-  total = total + handleSealedChestLocation(segment, "@Guardia Castle Past/Sealed Chest", {{0x7F00D9, 0x02}})
-  total = total + handleSealedChestLocation(segment, "@Magic Cave/Sealed Chest", {{0x7F0079, 0x01}})
-  
-  -------------
-  -- 1000 AD --
-  -------------
-  total = total + handleSealedChestLocation(segment, "@Porre Mayor's House/Sealed Chests", {{0x7F01D1, 0x40}, {0x7F01D1, 0x80}})
-  total = total + handleSealedChestLocation(segment, "@Truce Inn Present/Sealed Chest", {{0x7F014A, 0x20}})
-  total = total + handleSealedChestLocation(segment, "@Guardia Forest Present/Sealed Chest", {{0x7F01D1, 0x20}})
-  total = total + handleSealedChestLocation(segment, "@Guardia Castle Present/Sealed Chest", {{0x7F00D9, 0x04}})
-  total = total + handleSealedChestLocation(segment, "@Heckran Cave/Sealed Chest", {{0x7F01A0, 0x04}})
-  total = total + handleSealedChestLocation(segment, "@Forest Ruins/Blue Pyramid", {{0x7F01A0, 0x01}})
-  
-  -- The "regular" Northern Ruins chests are not normal treasure chests.
-  -- They are handled internally via events just like sealed chests.
-  -- 600 AD
-  total = total + handleSealedChestLocation(segment, "@Northern Ruins Past/Chests", {{0x7F01AC, 0x02}, {0x7F01AC, 0x08}})
-  total = total + handleSealedChestLocation(segment, "@Northern Ruins Past/Sealed Chests", {{0x7F01A6, 0x01}, {0x7F01A6, 0x02}, {0x7F01A6, 0x04}})
-  -- 1000 AD
-  total = total + handleSealedChestLocation(segment, "@Northern Ruins Present/Basement", {{0x7F01AC, 0x01}})
-  total = total + handleSealedChestLocation(segment, "@Northern Ruins Present/Upstairs", {{0x7F01AC, 0x04}})
-  total = total + handleSealedChestLocation(segment, "@Northern Ruins Present/Sealed Chests", {{0x7F01A9, 0x20}, {0x7F01A9, 0x40}, {0x7F01A9, 0x80}})
-  
-  CHECK_COUNTERS.sealed_chests = total
-  updateCollectionCount()
-
-end 
- ]]
---
 -- Handle updating the chest counters for a given area.
 --
 function handleChests(segment, locationName, treasureMap)
@@ -943,9 +639,7 @@ function handleChests(segment, locationName, treasureMap)
   for locationCode,treasures in pairs(treasureMap) do
     local location = Tracker:FindObjectForCode(locationName .. locationCode)
     if location == nil then
-      -- It is possible in some modes for not all defined treasures to exist.
-      -- ie: LoC mode doesn't have Ozzie's Fort treasures.
-      -- If the location doesn't exist, just return 0
+      -- If the location doesn't exist, don't error, just return 0
       return 0
     end
     
@@ -1006,16 +700,7 @@ function updateChests(segment)
       {0x13, 0x20}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Mystic Mountain/", chests)
-
-  --Death Peak
-
-  chests = {
-    ["Final Chest"] = {
-      {0x11, 0x02}
-    }
-  }
-  chestsOpened = chestsOpened + handleChests(segment, "@Death Peak/", chests)
+  handleChests(segment, "@Mystic Mountain/", chests)
   
   -- Forest Maze
   chests = {
@@ -1031,7 +716,7 @@ function updateChests(segment)
       {0x14, 0x40}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Forest Maze/", chests)
+  handleChests(segment, "@Forest Maze/", chests)
   
   -- Dactyl Nest
   chests = {
@@ -1041,7 +726,7 @@ function updateChests(segment)
       {0x16, 0x02}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Dactyl Nest/", chests)
+  handleChests(segment, "@Dactyl Nest/", chests)
   
   -- Reptite Lair
   chests = {
@@ -1050,7 +735,7 @@ function updateChests(segment)
       {0x15, 0x40}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Reptite Lair/", chests)
+  handleChests(segment, "@Reptite Lair/", chests)
   
   --------------------------
   --      12000 BC        --
@@ -1083,7 +768,7 @@ function updateChests(segment)
       {0x1B, 0x20}  -- Screen 4, Left Chest
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Mt Woe/", chests)
+  handleChests(segment, "@Mt Woe/", chests)
   
   --------------------------
   --       600 AD         --
@@ -1095,7 +780,7 @@ function updateChests(segment)
       {0x07, 0x80}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Fiona's Villa/", chests)
+  handleChests(segment, "@Fiona's Villa/", chests)
   
   -- Truce Canyon
   chests = {
@@ -1104,7 +789,7 @@ function updateChests(segment)
       {0x03, 0x10}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Truce Canyon/", chests)
+  handleChests(segment, "@Truce Canyon/", chests)
 
   -- Guardia Castle Past
   chests = {
@@ -1120,7 +805,7 @@ function updateChests(segment)
       {0x03, 0x80}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Guardia Castle 600/", chests)
+  handleChests(segment, "@Guardia Castle 600/", chests)
   
   -- Manoria Cathedral
   chests = {
@@ -1152,7 +837,7 @@ function updateChests(segment)
       {0x0C, 0x01}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Manoria Cathedral/", chests)
+  handleChests(segment, "@Manoria Cathedral/", chests)
   
   -- Cursed Woods
   chests = {
@@ -1164,7 +849,7 @@ function updateChests(segment)
       {0x05, 0x02}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Cursed Woods/", chests)
+  handleChests(segment, "@Cursed Woods/", chests)
   
   -- Denadoro Mountains
   chests = {
@@ -1198,43 +883,41 @@ function updateChests(segment)
       {0x07, 0x20}  -- Left side by save point
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Denadoro Mts/", chests)
+  handleChests(segment, "@Denadoro Mts/", chests)
   
   -- Giant's Claw
   chests = {
-  -- Throne room chests are shared between here and Tyrano Lair.
-  -- They are not currently being used in Chronosanity.
-	["Entrance Throne Room"] = {
+    -- Throne room chests are shared between here and Tyrano Lair.
+    ["Entrance Throne Room"] = {
       {0x16, 0x04},
       {0x16, 0x08}
     },
     ["Cave After Throne"] = {
       {0x0B, 0x04} -- Left chest after throne room
     },
-	["Behind Cave Skull"] = {
+    ["Behind Cave Skull"] = {
       {0x03, 0x04}  -- Chest north of the pit you jump down
     },
     ["Ladder Caverns"] = {
       {0x0B, 0x20}, -- Caverns room 2, left side
       {0x0B, 0x10} -- Caverns room 2, right side
     },
-	["Caverns After Drop"] = {
+    ["Caverns After Drop"] = {
       {0x0B, 0x80}, -- Caverns room 1
-      {0x0B, 0x40}, -- Blue Rock - Rock chests not included in Chronosanity
-	  {0x0B, 0x04}
-	  
+      {0x0B, 0x40}, -- Blue Rock chest
+      {0x0B, 0x04}
     },
-	["Left Switch Cave"] = {
+    ["Left Switch Cave"] = {
       {0x0B, 0x08}  -- Left door of pit room
     },
-	["Chest Drop"] = {
+    ["Chest Drop"] = {
       {0x03, 0x04}
     },
     ["Kino's Cell"] = {
       {0x03, 0x02}  -- Kino's Cell
     }    
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Giant's Claw/", chests)
+  handleChests(segment, "@Giant's Claw (Defile Toma's Grave in 1000)/", chests)
   
   -- Ozzie's Fort
   chests = {
@@ -1251,7 +934,7 @@ function updateChests(segment)
       {0x0B, 0x02}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Ozzie's Fort/", chests)
+  handleChests(segment, "@Ozzie's Fort/", chests)
   
   --------------------------
   --       1000 AD        --
@@ -1281,7 +964,7 @@ function updateChests(segment)
       {0x1D, 0x04}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Guardia Castle 1000/", chests)
+  handleChests(segment, "@Guardia Castle 1000/", chests)
   
   -- Chrono Trial Prison 
   chests = {
@@ -1308,7 +991,7 @@ function updateChests(segment)
 	  {0x02, 0x20}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Crono Trial Prison/", chests)
+  handleChests(segment, "@Crono Trial Prison/", chests)
   
   -- Truce Mayor's House
   chests = {
@@ -1317,15 +1000,15 @@ function updateChests(segment)
       {0x00, 0x08}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Truce Mayor's House/", chests)
+  handleChests(segment, "@Truce Mayor's House/", chests)
   
   -- Porre Mayor's House
   chests = {
-    ["Chests"] = {
+    ["Upstairs Chest"] = {
       {0x01, 0x80}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Porre Mayor's House/", chests)
+  handleChests(segment, "@Porre Mayor's House/", chests)
   
   -- Forest Ruins
   chests = {
@@ -1333,7 +1016,7 @@ function updateChests(segment)
       {0x01, 0x04}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Forest Ruins/", chests)
+  handleChests(segment, "@Forest Ruins/", chests)
   
   -- Heckran's Cave
   chests = {
@@ -1344,7 +1027,7 @@ function updateChests(segment)
       {0x01, 0x40}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Heckran Cave/", chests)
+  handleChests(segment, "@Heckran Cave/", chests)
   
   --------------------------
   --       2300 AD        --
@@ -1357,7 +1040,7 @@ function updateChests(segment)
       {0x0D, 0x04}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Bangor Dome/", chests)
+  handleChests(segment, "@Bangor Dome/", chests)
   
   -- Trann Dome
   chests = {
@@ -1366,7 +1049,7 @@ function updateChests(segment)
       {0x0D, 0x10}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Trann Dome/", chests)
+  handleChests(segment, "@Trann Dome/", chests)
   
   -- Arris Dome 
   chests = {
@@ -1383,7 +1066,7 @@ function updateChests(segment)
       {0x0E, 0x20}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Arris Dome/", chests)
+  handleChests(segment, "@Arris Dome/", chests)
   
   -- Factory Ruins 
   chests = {
@@ -1406,7 +1089,7 @@ function updateChests(segment)
       -- 7F001D   80  Inaccessible chest
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Factory/", chests)
+  handleChests(segment, "@Factory/", chests)
   
   -- Sewers
   chests = {
@@ -1416,7 +1099,7 @@ function updateChests(segment)
       {0x10, 0x40}  -- Back chest (left of exit)
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Sewers/", chests)
+  handleChests(segment, "@Sewers/", chests)
   
   -- Lab 16
   chests = {
@@ -1427,7 +1110,7 @@ function updateChests(segment)
       {0x0E, 0x01}  -- East side chest
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Lab 16/", chests)
+  handleChests(segment, "@Lab 16/", chests)
   
   -- Lab 32
   chests = {
@@ -1438,7 +1121,7 @@ function updateChests(segment)
       {0x0F, 0x01}
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Lab 32/", chests)
+  handleChests(segment, "@Lab 32/", chests)
   
   -- Geno Dome 
   chests = {
@@ -1473,7 +1156,7 @@ function updateChests(segment)
       {0x13, 0x10}  -- Chest by first set of laser guards
     }
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Geno Dome/", chests)
+  handleChests(segment, "@Geno Dome/", chests)
   
   -- Death Peak 
   chests = {
@@ -1485,22 +1168,19 @@ function updateChests(segment)
     },
 	["Cave Chests"] = {
       {0x12, 0x40},
-	  {0x13, 0x01},
-	  {0x12, 0x80}
+	    {0x13, 0x01},
+	    {0x12, 0x80}
     },
 	["Monster Dispenser Chest"] = {
       {0x12, 0x20}
     },
 	["Final Climb Chests"] = {
       {0x11, 0x01},
-	  {0x11, 0x02}
+	    {0x11, 0x02}
     },
   }
-  chestsOpened = chestsOpened + handleChests(segment, "@Death Peak/", chests)
-  
-  CHECK_COUNTERS.chests = chestsOpened
-  --updateCollectionCount()
-  
+  handleChests(segment, "@Death Peak/", chests)
+    
 end
 
 --
@@ -1508,10 +1188,10 @@ end
 --
 printDebug("Adding memory watches")
 ScriptHost:AddMemoryWatch("Party", 0x7E2980, 9, updateParty)
-ScriptHost:AddMemoryWatch("Checklist", 0x7F0045, 1, updateCollectionCount)
+ScriptHost:AddMemoryWatch("Checklist", 0x7F0045, 1, updateChecklistCount)
 ScriptHost:AddMemoryWatch("Eot", 0x7F0047, 1, updateEoT)
 ScriptHost:AddMemoryWatch("Scaling", 0x7E2881, 1, updateScaling)
 ScriptHost:AddMemoryWatch("Events", 0x7F0000, 512, updateEventsAndBosses)
 ScriptHost:AddMemoryWatch("Inventory", 0x7E2400, 0xF2, updateItemsFromInventory)
 ScriptHost:AddMemoryWatch("Chests", 0x7F0000, 0x20, updateChests)
-ScriptHost:AddMemoryWatch("ObjectiveInitLoad", 0x7E0100, 512, loadObjectives,1)
+ScriptHost:AddMemoryWatch("ObjectiveInitLoad", 0x7F0220, 0x08, loadObjectives)
