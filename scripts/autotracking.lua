@@ -1,5 +1,5 @@
 -- Configuration --------------------------------------
-AUTOTRACKER_ENABLE_DEBUG_LOGGING = true
+AUTOTRACKER_ENABLE_DEBUG_LOGGING = false
 -------------------------------------------------------
 
 print("")
@@ -209,42 +209,41 @@ KEY_ITEMS = {
   {value=0xE9, name="jetsoftime", callback=handleItemTurnin, address=0x7F00BA, flag=0x80},
   {value=0xEA, name="pendant2"},
   {value=0xEB, name="rainbowshell"},
-  {value=0xE1, name="yakrakey"}
-}
+  {value=0xE1, name="yakrakey"},
 
-OBJECTIVES = {
-  0x1C,
-  0x1D,
-  0x1E,
-  0x2A,
-  0x2B,
-  0x2C,
-  0x2D,
-  0x3A
+  -- Objective Items
+  {value=0x1C, name="objective1", objective=true},
+  {value=0x1D, name="objective2", objective=true},
+  {value=0x1E, name="objective3", objective=true},
+  {value=0x2A, name="objective4", objective=true},
+  {value=0x2B, name="objective5", objective=true},
+  {value=0x2C, name="objective6", objective=true},
+  {value=0x2D, name="objective7", objective=true},
+  {value=0x3A, name="objective8", objective=true},
 }
 
 function loadObjectives(segment)
-  local loops = 1
-  ::restart::
   local objective_parse = {}
   local obj_sum = 0
-  if  segment:ReadUInt8(0x7E0100) == 0x0000 or segment:ReadUInt8(0x7E0100) == 0x01B1 then
+  if  segment:ReadUInt16(0x7E0100) == 0x0000 then
     for i=0,0x07 do
-      table.insert(objective_parse,segment:ReadUInt8(0x7F0220 + i))
-      obj_sum = obj_sum+segment:ReadUInt8(0x7F0220 + i)
+      obj_id = segment:ReadUInt8(0x7F0220 + i)
+      table.insert(objective_parse, obj_id)
+      obj_sum = obj_sum + obj_id
     end
-    if obj_sum == 0 and loops <5 then
-      loops = loops + 1
-      local sec = tonumber(os.clock() + 0.1); 
-      while (os.clock() < sec) do 
-      end 
-      printDebug(loops)
-      goto restart
-    else
+
+    -- Sanity check to make sure we have real objective data
+    -- Map 0x0000 sets the objectives, but the pendulum scene
+    -- (0x01B1) seems to set them back to zero. They are then
+    -- set again when the map transitions to the battle mode
+    -- screen (map 0x0000 again)
+    if obj_sum ~= 0 then
       for i=1,8 do
         local trackerItem = Tracker:FindObjectForCode("obj"..i)
           trackerItem.CurrentStage = objective_parse[i]+2
       end
+    else
+      printDebug("Objective data read failed!")
     end
   end
 end
@@ -286,26 +285,16 @@ function updateItemsFromInventory(segment)
         end
       end
     end -- end key item loop
-    
   end -- end inventory loop
-  -- loop through objectives, looping through inventory to see if they're still there.
-  local objective_checks = {}
-  for k,v in pairs(OBJECTIVES) do
-    local found = false
-    for i=0,0xF1 do
-      local item = segment:ReadUInt8(0x7E2400 + i)
-      if item == v then
-        found = true
-      end
-    end
-    -- if objective is disabled, ignore, else change objective found is false
-    table.insert(objective_checks,found)
-  end -- end key item loop
-  
   
   -- Loop the key items and toggle them based on whether or not they were found
+  local objective_checks = {}
   for k,v in pairs(KEY_ITEMS) do
-    if v.callback then
+    if v.objective then
+      -- This item is an objective marker
+      -- When objective markers to away, the objective is complete
+      table.insert(objective_checks, v.found)
+    elseif v.callback then
       v.callback(v)
     else
       local trackerItem = Tracker:FindObjectForCode(v.name)
@@ -318,8 +307,9 @@ function updateItemsFromInventory(segment)
   end
   
   -- Loop the objectives and set state to complete if found = false
+  mapId = AutoTracker:ReadU16(0x7E0100)
   for k,v in pairs(objective_checks) do
-    if  segment:ReadUInt8(0x7E0100) ~= 0x0000 and segment:ReadUInt8(0x7E0100) ~= 0x01B1 then
+    if mapId ~= 0x0000 and mapId ~= 0x01B1 then
       local trackerItem = Tracker:FindObjectForCode("obj"..k)
       if v == false then
         if trackerItem.Active == true then
