@@ -1,5 +1,5 @@
 -- Configuration --------------------------------------
-AUTOTRACKER_ENABLE_DEBUG_LOGGING = false
+AUTOTRACKER_ENABLE_DEBUG_LOGGING = true
 -------------------------------------------------------
 
 print("")
@@ -236,16 +236,6 @@ OBJECTIVES = {
   0x3A
 }
 
---
--- Update key items from the inventory memory segment.
--- Some items provide callbacks for special handling.  All other
--- items just get directly toggled on the tracker.  
--- 
--- NOTE: Magic is tracked with events and bosses.  The marker for
---       magic shows up with key items on the tracker, but the 
---       "Met Spekkio" memory flag is with the rest of the event flags.
---
-
 function loadObjectives(segment)
   local loops = 1
   ::restart::
@@ -261,7 +251,7 @@ function loadObjectives(segment)
       local sec = tonumber(os.clock() + 0.1); 
       while (os.clock() < sec) do 
       end 
-      print(loops)
+      printDebug(loops)
       goto restart
     else
       for i=1,8 do
@@ -272,6 +262,11 @@ function loadObjectives(segment)
   end
 end
 
+--
+-- Update key items from the inventory memory segment.
+-- Some items provide callbacks for special handling.  All other
+-- items just get directly toggled on the tracker.
+--
 function updateItemsFromInventory(segment)
 
   -- Nothing to track if we're not actively in the game
@@ -538,10 +533,7 @@ function updateEventsAndBosses(segment)
   local magic = Tracker:FindObjectForCode("magic")
   local spekkioByte = segment:ReadUInt8(0x7F00E1)
   magic.Active = (spekkioByte & 0x02) ~= 0
-  
-  -- Check if the Epoch is capable of flight.
-  -- This is used in the Epoch Fail mode of Vanilla Rando
-  updateEvent("@Snail Stop/Attach Epoch Wings", segment, 0x7F00BA, 0x80)
+
   handleGoMode()
 end
 
@@ -719,15 +711,6 @@ function updateChests(segment)
     }
   }
   handleChests(segment, "@Mystic Mountain/", chests)
-
-  --Death Peak
-
-  chests = {
-    ["Final Chest"] = {
-      {0x11, 0x02}
-    }
-  }
-  handleChests(segment, "@Death Peak/", chests)
   
   -- Forest Maze
   chests = {
@@ -914,39 +897,37 @@ function updateChests(segment)
   
   -- Giant's Claw
   chests = {
-  -- Throne room chests are shared between here and Tyrano Lair.
-  -- They are not currently being used in Chronosanity.
-	["Entrance Throne Room"] = {
+    -- Throne room chests are shared between here and Tyrano Lair.
+    ["Entrance Throne Room"] = {
       {0x16, 0x04},
       {0x16, 0x08}
     },
     ["Cave After Throne"] = {
       {0x0B, 0x04} -- Left chest after throne room
     },
-	["Behind Cave Skull"] = {
+    ["Behind Cave Skull"] = {
       {0x03, 0x04}  -- Chest north of the pit you jump down
     },
     ["Ladder Caverns"] = {
       {0x0B, 0x20}, -- Caverns room 2, left side
       {0x0B, 0x10} -- Caverns room 2, right side
     },
-	["Caverns After Drop"] = {
+    ["Caverns After Drop"] = {
       {0x0B, 0x80}, -- Caverns room 1
-      {0x0B, 0x40}, -- Blue Rock - Rock chests not included in Chronosanity
-	  {0x0B, 0x04}
-	  
+      {0x0B, 0x40}, -- Blue Rock chest
+      {0x0B, 0x04}
     },
-	["Left Switch Cave"] = {
+    ["Left Switch Cave"] = {
       {0x0B, 0x08}  -- Left door of pit room
     },
-	["Chest Drop"] = {
+    ["Chest Drop"] = {
       {0x03, 0x04}
     },
     ["Kino's Cell"] = {
       {0x03, 0x02}  -- Kino's Cell
     }    
   }
-  handleChests(segment, "@Giant's Claw/", chests)
+  handleChests(segment, "@Giant's Claw (Defile Toma's Grave in 1000)/", chests)
   
   -- Ozzie's Fort
   chests = {
@@ -1033,7 +1014,7 @@ function updateChests(segment)
   
   -- Porre Mayor's House
   chests = {
-    ["Chests"] = {
+    ["Upstairs Chest"] = {
       {0x01, 0x80}
     }
   }
@@ -1197,15 +1178,15 @@ function updateChests(segment)
     },
 	["Cave Chests"] = {
       {0x12, 0x40},
-	  {0x13, 0x01},
-	  {0x12, 0x80}
+	    {0x13, 0x01},
+	    {0x12, 0x80}
     },
 	["Monster Dispenser Chest"] = {
       {0x12, 0x20}
     },
 	["Final Climb Chests"] = {
       {0x11, 0x01},
-	  {0x11, 0x02}
+	    {0x11, 0x02}
     },
   }
   handleChests(segment, "@Death Peak/", chests)
