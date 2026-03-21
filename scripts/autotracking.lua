@@ -48,14 +48,20 @@ function chronosanityMode()
 end
 
 --
+-- Check if the current screen is pendulum or load screen
+--
+function onLoadScreen(mapId)
+
+  return (mapId == 0x0000 or mapId == 0x01B1) 
+ end
+
+--
 -- Check if the game is currently running
 --
-function inGame()
-
+ function inGame()
   -- Check the first 2 character slots.  If both are 0 (Crono's ID) then the game 
   -- hasn't started yet or has been reset.
-  return not (AutoTracker:ReadU8(0x7E2980) == 0 and AutoTracker:ReadU8(0x7E2981) == 0) 
-
+  return not (AutoTracker:ReadU8(0x7E2980) == 0 and AutoTracker:ReadU8(0x7E2981) == 0)
  end
 
 --
@@ -262,15 +268,28 @@ function loadObjectives(segment)
   end
 end
 
+
+
 --
 -- Update key items from the inventory memory segment.
 -- Some items provide callbacks for special handling.  All other
 -- items just get directly toggled on the tracker.
 --
 function updateItemsFromInventory(segment)
-
+  local mapId = AutoTracker:ReadU16(0x7E0100)
+  print("onLoadScreen("..mapId.."):".. tostring(onLoadScreen(mapId)))
   -- Nothing to track if we're not actively in the game
-  if not inGame() then
+  
+  if onLoadScreen(mapId) then
+  -- Add in full reset on markers
+    for k,v in pairs(KEY_ITEMS) do
+      local trackerItem = Tracker:FindObjectForCode(v.name)
+      if v.type == "toggle" then
+        trackerItem.Active = false
+      elseif v.type == "progressive" then
+        trackerItem.CurrentStage = 0
+      end 
+    end
     return
   end
 
@@ -533,7 +552,6 @@ end
 -- Toggle a character based on whether or not he/she was found in the party.
 --
 function toggleCharacter(name, found)
-
   character = Tracker:FindObjectForCode(name)
   if character then
     if not character.Owner.ModifiedByUser then
