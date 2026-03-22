@@ -341,11 +341,11 @@
     "type": "progressive",
     "stages": [
 	    {
-        "img": "images/clone.png",    
+        "img": "images/ctrigger.png",    
         "codes":"clonectrigger"
       },
       {
-        "img": "images/ctrigger.png",   
+        "img": "images/clone.png",   
         "codes":"clonectrigger"
       }
     ]
