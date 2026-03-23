@@ -148,6 +148,59 @@ function updateBoss(name, segment, address, flag)
 end
 
 --
+-- Update a check that uses a counter byte instead of a flag
+--
+function updateCounterCheck(name, segment, address, count)
+  local trackerItem = Tracker:FindObjectForCode(name)
+  if trackerItem then
+    local value = segment:ReadUInt8(address)
+    if value >= count then
+      trackerItem.AvailableChestCount = 0
+    else
+      trackerItem.AvailableChestCount = 1
+    end
+  else
+    printDebug("Update Counter Check: Unable to find tracker item: " .. name)
+  end
+end
+
+--
+-- Update a check that contains multiple sealed chests
+-- in a single location.  These include Northern Ruins
+-- and the Porre Mayor/Elder house
+--
+-- flagList is a list of addr/flag pairs, one for each
+-- chest in the location:
+--
+-- {
+--   {0x7FXXXX, 0xXX},
+--   {0x7FXXXY, 0xXY}
+-- }
+--
+function updateMultiSealedChestLocation(name, segment, flagList)
+  local location = Tracker:FindObjectForCode(name)
+  if location then
+
+    -- Figure out how many of the chests are collected
+    local count = 0
+    for _, chestData in pairs(flagList) do
+      local address = chestData[1]
+      local flag = chestData[2]
+      value = segment:ReadUInt8(address)
+      if value & flag ~= 0 then
+        count = count + 1
+      end
+    end
+
+    -- We have the collected chest count,
+    -- subtract it from the location count
+    location.AvailableChestCount = location.ChestCount - count
+  else
+    printDebug("Muliti Sealed Chest Location: Unable to find tracker item: " .. name)
+  end
+end
+
+--
 -- Handle items that can also show up in character's equipment slots.
 -- This includes the Hero Medal and the Masamune.
 --
@@ -276,7 +329,7 @@ end
 --
 function updateItemsFromInventory(segment)
   local mapId = AutoTracker:ReadU16(0x7E0100)
-  print("onLoadScreen("..mapId.."):".. tostring(onLoadScreen(mapId)))
+  printDebug("onLoadScreen("..mapId.."):".. tostring(onLoadScreen(mapId)))
   -- Nothing to track if we're not actively in the game
   
   if onLoadScreen(mapId) then
@@ -488,7 +541,7 @@ function updateEventsAndBosses(segment)
 		updateEvent("@Terra Cave (Mt Woe Ent)/Mud Imp", segment, 0x7F0103, 0x04)
 		updateEvent("@Kajar/Research Room Sparkle", segment, 0x7F00F6, 0x04)
     
-      -- Middle Ages
+		-- Middle Ages
 		updateEvent("@Guardia Castle 600/Chef", segment, 0x7F00A9, 0x10)
 		updateEvent("@Manoria Cathedral/Soldier Bucket Sparkle", segment, 0x7F00F6, 0x10)
 		updateEvent("@Guardia Forest 600/Forest Tab", segment, 0x7F01D3, 0x08)
@@ -509,8 +562,23 @@ function updateEventsAndBosses(segment)
 		updateEvent("@Truce Inn 600/Sealed Chest", segment, 0x7F014A, 0x80)
 		updateEvent("@Guardia Forest 600/Sealed Chest", segment, 0x7F01D2, 0x80)
 		updateEvent("@Guardia Castle 600/Sealed Chest", segment, 0x7F00D9, 0x02)
+		updateMultiSealedChestLocation(
+			"@Northern Ruins 600 (Carpenter Fixes)/Sealed Chests",
+			segment,
+			{
+				{0x7F01A6, 0x01},
+				{0x7F01A6, 0x02},
+				{0x7F01A6, 0x04}
+			})
+		updateMultiSealedChestLocation(
+			"@Porre Elder's House/Sealed Chests",
+			segment,
+			{
+				{0x7F01D3, 0x10},
+				{0x7F01D3, 0x20}
+			})
     
-      -- Present
+		-- Present
 		updateEvent("@Crono's House/Allowance", segment, 0x7F0140, 0x02)
 		updateEvent("@Millenial Fair/Marle Pendant", segment, 0x7F0054, 0x20)
 		updateEvent("@Snail Stop/Buy for 9900G", segment, 0x7F01D0, 0x10)
@@ -523,7 +591,7 @@ function updateEventsAndBosses(segment)
 		updateEvent("@Guardia Castle 1000/Melchior's Refinements (Rainbow)", segment, 0x7F006D, 0x20)
 		updateEvent("@Guardia Castle 1000/Melchior's Refinements (Sunstone)", segment, 0x7F0103, 0x20)
 		updateEvent("@Crono Trial Prison/Cell Gift", segment, 0x7F019B, 0x80)
-		-- updateEvent("@Truce Mayor's House/Mayor Gift", segment, 
+		updateCounterCheck("@Truce Mayor's House/Mayor Gift", segment, 0x7F0143, 2)
 		updateEvent("@Heckran Cave/Sealed Chest", segment, 0x7F01A0, 0x04)
 		updateEvent("@Medina Elder's House/Counter Sparkle", segment, 0x7F014A, 0x04)
 		updateEvent("@Medina Elder's House/Upstairs Sparkle", segment, 0x7F014A, 0x02)
@@ -531,10 +599,26 @@ function updateEventsAndBosses(segment)
 		updateEvent("@Forest Ruins/Blue Pyramid Sealed Chest (Right)", segment, 0x7F0100, 0x04)
 		updateEvent("@West Cape/Behind Grave", segment, 0x7F01AC, 0x10)
 		updateEvent("@Choras Residence/Carpenter's Wife (Speak to Carpenter in Inn)", segment, 0x7F019E, 0x80)
-		-- updateEvent("@Northern Ruins 1000 (Carpenter Fixes in 600)/Grave Room Sparkle", segment,
+		updateEvent("@Northern Ruins 1000 (Carpenter Fixes in 600)/Grave Room Sparkle", segment, 0x7F01A4, 0x80)
+		updateEvent("@Northern Ruins 1000 (Carpenter Fixes in 600)/Second Floor Sparkle", segment, 0x7F01A9, 0x10)
 		updateEvent("@Northern Ruins 1000 (Carpenter Fixes in 600)/Basement Chest", segment, 0x7F01AC, 0x01)
 		updateEvent("@Northern Ruins 1000 (Carpenter Fixes in 600)/Left Room Chest", segment, 0x7F01AC, 0x04)
-      
+		updateMultiSealedChestLocation(
+		"@Northern Ruins 1000 (Carpenter Fixes in 600)/Sealed Chests",
+			segment,
+			{
+				{0x7F01A9, 0x20},
+				{0x7F01A9, 0x40},
+				{0x7F01A9, 0x80}
+			})
+		updateMultiSealedChestLocation(
+			"@Porre Mayor's House/Sealed Chests",
+			segment,
+			{
+				{0x7F01D1, 0x40},
+				{0x7F01D1, 0x80}
+			})
+
     -- Future
 		updateEvent("@Trann Dome/Sealed Door Sparkle", segment, 0x7F00D5, 0x04)
 		updateEvent("@Arris Dome/Sealed Door Sparkle", segment, 0x7F00D5, 0x08)
