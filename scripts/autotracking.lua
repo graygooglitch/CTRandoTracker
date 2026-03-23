@@ -189,7 +189,6 @@ function handleItemTurnin(keyItem)
   if trackerItem and not trackerItem.Owner.ModifiedByUser then
     trackerItem.Active = itemFound
   end
-
 end
 
 --
@@ -214,7 +213,7 @@ KEY_ITEMS = {
   {value=0xD6, name="pendant",type="progressive",stage=1},
   {value=0xD7, name="gatekey",type="toggle"},
   {value=0xD8, name="rainbowshell",type="progressive",stage=2},
-  {value=0xD9, name="clonectrigger",type="progressive",stage=2},
+  {value=0xD9, name="clonectrigger",type="progressive",stage=1},
   {value=0x42, name="masamune", callback=handleEquippableItem, address=0x7E2769,type="progressive",stage=2},
   {value=0xDA, name="tools", callback=handleItemTurnin, address=0x7F019E, flag=0x40,type="toggle"},
   {value=0xDB, name="jerky", callback=handleItemTurnin, address=0x7F01D2, flag=0x04,type="toggle"},
@@ -223,7 +222,7 @@ KEY_ITEMS = {
   {value=0xDE, name="moonstone", callback=handleItemTurnin, address=0x7F013A,type="toggle", flag=0x04},
   {value=0xDF, name="sunstone",type="toggle"},
   {value=0xE0, name="rubyknife",type="toggle"},
-  {value=0xE2, name="clonectrigger",type="progressive",stage=1},
+  {value=0xE2, name="clonectrigger",type="progressive",stage=2},
   {value=0xE3, name="tomapop", callback=handleItemTurnin, address=0x7F01A3, flag=0x80,type="toggle"},
   {value=0xE9, name="jetsoftime", callback=handleItemTurnin, address=0x7F00BA, flag=0x80,type="toggle"},
   {value=0xEA, name="pendant",type="progressive",stage=2},
@@ -298,11 +297,15 @@ function updateItemsFromInventory(segment)
     v.found = false
   end
 
+  local inventory_empty = true
   -- Loop through the inventory, determine which key items the player has found
   for i=0,0xF1 do
     local item = segment:ReadUInt8(0x7E2400 + i)
     -- Loop through the table of key items and see if the current 
     -- inventory slot maches any of them
+    if item ~= 0x00 then
+      inventory_empty = false
+    end
     for k,v in pairs(KEY_ITEMS) do
       if type(v.value) == "number" then
         if item == v.value then
@@ -320,6 +323,11 @@ function updateItemsFromInventory(segment)
     end -- end key item loop
   end -- end inventory loop
   
+  -- Abandon update if inventory is seen as empty, meaning we're on the Black Bird
+  if inventory_empty then
+    return
+  end
+
   -- Loop the key items and toggle them based on whether or not they were found
   local objective_checks = {}
   for k,v in pairs(KEY_ITEMS) do
