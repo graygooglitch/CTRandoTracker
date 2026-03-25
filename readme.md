@@ -1,4 +1,4 @@
-### Rando-Dalton Imperial (CTRando) Tracker
+# Rando-Dalton Imperial (CTRando) Tracker
 This package is based off of the work done for the Chrono Trigger Jets of Time Randomizer Tracker, the basic version created by DaloEndilix, and contains a number of additional updates.
 
 ## Main Functions
