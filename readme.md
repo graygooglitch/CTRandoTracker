@@ -12,3 +12,10 @@ This package is based off of the work done for the Chrono Trigger Jets of Time R
 - Load the tracker
     - For SNES Auto-tracking with Emulator you will need a version of QUSB2SNES that still allows for the LuaBridge
     - For SNES Auto-tracking with Console you will need QUSB2SNES and a compatible flash cart (FXPak or SD2SNES)
+
+## Shout-outs
+- All the folks who contributed to the Jets of Time tracker
+- DaloEndilix for setting up the initial tracker
+- Peusdoarc for building some additional memory storage to make objective auto-assignment possible and for helping me troubleshoot
+- Anguirel and Phone for several clean-up bits and helping me troubleshoot
+- The Rando-Dalton Imperial community at large for the passion y'all have
