@@ -10,5 +10,5 @@ This package is based off of the work done for the Chrono Trigger Jets of Time R
 - Download and install either PopTracker or EmoTracker (or both)
 - Drop the package in the EmoTracker or PopTracker pack locations (as defined by the program)
 - Load the tracker
-- For SNES Auto-tracking with Emulator you will need a version of QUSB2SNES that still allows for the LuaBridge
-- For SNES Auto-tracking with Console you will need QUSB2SNES and a compatible flash cart (FXPak or SD2SNES)
+    - For SNES Auto-tracking with Emulator you will need a version of QUSB2SNES that still allows for the LuaBridge
+    - For SNES Auto-tracking with Console you will need QUSB2SNES and a compatible flash cart (FXPak or SD2SNES)
