@@ -205,12 +205,9 @@ end
 -- This includes the Hero Medal and the Masamune.
 --
 function handleEquippableItem(keyItem)
-
   local equipmentSlot = AutoTracker:ReadU8(keyItem.address, 0)
   local itemOwned = keyItem.found or equipmentSlot == keyItem.value
-  
   local trackerItem = Tracker:FindObjectForCode(keyItem.name)  
-
   if keyItem.type == "toggle" then
     if trackerItem and not trackerItem.Owner.ModifiedByUser then
       trackerItem.Active = itemOwned
@@ -333,7 +330,7 @@ function updateItemsFromInventory(segment)
   -- Nothing to track if we're not actively in the game
   
   if onLoadScreen(mapId) then
-  -- Add in full reset on markers
+  -- Full reset on markers when going to the load screen
     for k,v in pairs(KEY_ITEMS) do
       local trackerItem = Tracker:FindObjectForCode(v.name)
       if v.type == "toggle" then
@@ -1305,3 +1302,4 @@ ScriptHost:AddMemoryWatch("Events", 0x7F0000, 512, updateEventsAndBosses)
 ScriptHost:AddMemoryWatch("Inventory", 0x7E2400, 0xF2, updateItemsFromInventory)
 ScriptHost:AddMemoryWatch("Chests", 0x7F0000, 0x20, updateChests)
 ScriptHost:AddMemoryWatch("ObjectiveInitLoad", 0x7F0220, 0x08, loadObjectives)
+ScriptHost:AddMemoryWatch("FrogInventoryTrigger", 0x7E2769, 1, updateItemsFromInventory)
