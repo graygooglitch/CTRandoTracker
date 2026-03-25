@@ -59,7 +59,7 @@
       },
       {
         "img": "images/pendant2.png",   
-        "codes":"pendant"
+        "codes":"pendant,pendant2"
       }
     ]
 	},
@@ -115,7 +115,7 @@
       },
       {
         "img": "images/masamune2.png",   
-        "codes":"masamune"
+        "codes":"masamune,masmune2"
       }
     ]
 	},
@@ -332,7 +332,7 @@
       },
       {
         "img": "images/prismshard.png",   
-        "codes":"rainbowshell"
+        "codes":"rainbowshell,prismshard"
       }
     ]
 	},
@@ -342,11 +342,11 @@
     "stages": [
 	    {
         "img": "images/ctrigger.png",    
-        "codes":"clonectrigger"
+        "codes":"ctrigger"
       },
       {
         "img": "images/clone.png",   
-        "codes":"clonectrigger"
+        "codes":"ctrigger,clone"
       }
     ]
 	},
