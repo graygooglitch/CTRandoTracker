@@ -1,3 +1,9 @@
+### Rando-Dalton Imperial (CTRando) Tracker v0.2.5
+## Even more Clean-up
+- Fixed a small auto-tracking glitch pertaining to equippables in a way that EmoTracker doesn't hate
+
+*This version will only automatically assign objectives when using seeds generated with the discord bot. It will fully auto-track completion of objectives on the production version.
+
 ### Rando-Dalton Imperial (CTRando) Tracker v0.2.4
 ## Icons Icons Icons (and minor bug fixes)
 - Created several new icons to match the aesthetics of the tracker and the game: Yakra Key, Bike Key, Scales, Race Log, Prism Shards

@@ -241,6 +241,13 @@ function handleItemTurnin(keyItem)
   end
 end
 
+-- Function to run when map changes, used for debugging
+-- Use this memory watch if needed: 
+-- 
+function mapChanged(segment)
+  --print("Map ID: " .. segment:ReadUInt16(0x7E0100))
+end
+
 --
 -- table of key item memory values and names as 
 -- registered with the tracker via items.json.
@@ -326,22 +333,26 @@ end
 --
 function updateItemsFromInventory(segment)
   local mapId = AutoTracker:ReadU16(0x7E0100)
+
   printDebug("onLoadScreen("..mapId.."):".. tostring(onLoadScreen(mapId)))
   -- Nothing to track if we're not actively in the game
   
   if onLoadScreen(mapId) then
   -- Full reset on markers when going to the load screen
     for k,v in pairs(KEY_ITEMS) do
-      local trackerItem = Tracker:FindObjectForCode(v.name)
-      if v.type == "toggle" then
-        trackerItem.Active = false
-      elseif v.type == "progressive" then
-        trackerItem.CurrentStage = 0
-      end 
+      if not v.objective then
+        local trackerItem = Tracker:FindObjectForCode(v.name)
+        if v.type == "toggle" then
+          trackerItem.Active = false
+        elseif v.type == "progressive" then
+          trackerItem.CurrentStage = 0
+        end 
+      end
     end
     return
   end
 
+  local mapId = AutoTracker:ReadU16(0x7E0100)
   -- Reset all items to "not found"
   for k,v in pairs(KEY_ITEMS) do
     v.found = false
@@ -350,7 +361,7 @@ function updateItemsFromInventory(segment)
   local inventory_empty = true
   -- Loop through the inventory, determine which key items the player has found
   for i=0,0xF1 do
-    local item = segment:ReadUInt8(0x7E2400 + i)
+    local item = AutoTracker:ReadU8(0x7E2400 + i)
     -- Loop through the table of key items and see if the current 
     -- inventory slot maches any of them
     if item ~= 0x00 then
@@ -1302,4 +1313,5 @@ ScriptHost:AddMemoryWatch("Events", 0x7F0000, 512, updateEventsAndBosses)
 ScriptHost:AddMemoryWatch("Inventory", 0x7E2400, 0xF2, updateItemsFromInventory)
 ScriptHost:AddMemoryWatch("Chests", 0x7F0000, 0x20, updateChests)
 ScriptHost:AddMemoryWatch("ObjectiveInitLoad", 0x7F0220, 0x08, loadObjectives)
-ScriptHost:AddMemoryWatch("FrogInventoryTrigger", 0x7E2769, 1, updateItemsFromInventory)
+ScriptHost:AddMemoryWatch("FrogInventoryTrigger", 0x7E2769, 16, updateItemsFromInventory)
+-- ScriptHost:AddMemoryWatch("MapChanged", 0x7E0100, 16, mapChanged)
