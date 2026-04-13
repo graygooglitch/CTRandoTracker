@@ -21,7 +21,7 @@
 							[ "crono", "lucca", "marle", "frog", "robo","ayla", "magus" ],
 							[ "benthilt", "bentsword", "masamune", "heromedal", "seed", "bikekey", "yakrakey"],
 							[ "gatekey", "dreamstone", "rubyknife", "rainbowshell", "tools", "racelog", "jerky"],
-							[ "pendant", "clonectrigger", "moonstone", "sunstone", "jetsoftime", "jetsoftime2", "tomapop"]
+							[ "pendant", "ctrigger", "moonstone", "sunstone", "jetsoftime", "jetsoftime2", "tomapop"]
 						]
 					}
 				]
@@ -164,7 +164,7 @@
 						[
 							[ "benthilt", "bentsword", "masamune",  "heromedal", "seed", "bikekey", "yakrakey","scale"],
 							[ "gatekey", "dreamstone", "rubyknife", "rainbowshell", "tools", "racelog", "jerky","bucket"],
-							[ "pendant", "clonectrigger", "moonstone", "sunstone", "jetsoftime", "jetsoftime2", "tomapop","omen"],
+							[ "pendant", "ctrigger", "moonstone", "sunstone", "jetsoftime", "jetsoftime2", "tomapop","omen"],
 							[ "crono","lucca", "marle", "frog","robo", "ayla", "magus", "go"]
 						]
 					}
