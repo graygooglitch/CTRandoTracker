@@ -14,6 +14,14 @@
 		"items_only":
 		{
 			"display_name": "Item Tracker"
+		},
+		"standard_labeled":
+		{
+			"display_name": "Map Tracker (With Labeled Objectives)"
+		},
+		"io_labeled":
+		{
+			"display_name": "Item Tracker (With Labeled Objectives)"
 		}
 	}
 }

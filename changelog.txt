@@ -1,0 +1,136 @@
+v0.0.1
+
+Item Tracking
+Map Tracking
+
+v0.0.2
+
+Auto Tracking - includes map, objectives, scaling level, key items, bosses, events
+
+v0.0.3
+
+logic update for tyrano lair access requiring ayla
+
+v0.0.4
+fix for bent hilt/sword lighting up incorrectly in some situations
+
+v0.0.5
+- Updated Prehistory with new checks
+- Updated Dark Ages with new checks
+- Muddled with Autotracking new checks
+
+v0.0.6
++ Updated Prehistory with the Ioka Sweetwater Hut Check
++ Completely Overhauled 600 AD
+- Autotracking is now completely broken and will be added/updated later
+
+v0.0.7
++ Completely Overhauled 1000 AD
+	- Added in Tab Checks
+		- Guardia Forest 1000
+		- Medina Elder's House (2 Sparkles)
+		- Norther Ruins (2 Sparkles)
+		- West Cape
+	- Separated Guardia Castle and Prison Locations
+		- Prison checks now assume you need Lucca, but are visible without her, due to possible recruit access.
+	- All Prison Chests Added (They are now unmissable)
+	- Added in NPC Interaction Checks
+		- Chrono's Mom Allowance (Requires Chrono)
+		- Truce Mayor's Gift
+		- Melchior's Refinements for both Rainbow Shell and Sunstone (Requires King Trial)
+		- Carpenter's Wife Tool Gift
+	- Changed Sealed Chest Icons
+	- Added Sealed Chest to Forest Ruins
+	- Made Certain Checks Peekable (Blue, always visible, even without required item)
+		- Fair Recruit (If there is one)
+		- Prison Recruit (If there is one)
+		- Snail Stop
+		- Porre Mayor Jerky Trade
+	- Various Cleanups to Naming and Code
+
+v0.1.0
++ Added in Yakra Key Check
++ Changed Layout to be Items, Bosses, and Events. Moved things around accordingly in the Tracker Layout.
+	- This is in preparation for creating a better defined event tracking system for Quests and Gated Checks.
++ Updated Broadcast Tracker to Match Item Tracker
++ Cleaned up Various Code
++ Future Era Updates:
+	- Updated Sealed Doors to Properly Require Charged Pendant Access
+	- Added Tab Sparkle to Trann Dome Sealed Door Check
+	- Separated Arris Dome Chests
+	- Added Tab Sparkle to Arris Dome Sealed Door Check
+	- Added Tab Sparkle to Proto Dome Time Gate Room
+	- Added End of Time Back Door Access to Proto Dome and Factory checks
+	- Added Race Log Check which Requires Bike Key
+	- Added Death's Peak Sparkle and Chests
+	- Broke Apart Geno Dome Checks and Added Sparkles
++ Last Village Era Updates:
+	- Added Sparkle Behind Nu
+	
+v0.1.1
+- Removed old Jets of Time Files that were no longer needed.
+- Removed Zenan Bridge Captain Check, as it is now automatically gotten as a part of Zombor's boss encounter.
++ Added Johnny Race Score check, requiring the Race Log and Chrono to Lab 32.
+
+v0.1.2
++ Added Yakra Key to autotracking
++ Ensured Laruba Ruins Dactyl Activates if Dactyl is unlocked via Dactyl Nest and vice versa for autotracking.
++ Updated the Cathedral Recruit at the Naga-ette battle to activate when you fight the battle rather than if you get a recruit.
++ Made the Beast Cave Boss (Mud Imp) a trackable boss and added the autotracking for this.
++ Fixed Autotracking for:
+	- Guardia Castle 600 (Chests and Chef Rewards)
+	- Cathedral Bucket Tab
+	- Guardia Forest Tab
+	- Naga-ette Bromide Tab
+	- Dorino Inn Powermeal
+	- Denadoro Mts (Chests, Gold Rock, and Tab Rewards)
+	- Porre Market 600 Tab
+	- Ozzie's Fort (Chests and Tab Rewards)
+	- Sun Keep 600 Tab
+	- Northern Ruins 600 Chests
+	- Choras Cafe Item from Toma
+	- Giant's Claw Sparkles
+	
+v0.1.3
++ Organized Item Layouts for Items Only and Map Tracker
++ Actually Updated Broadcast Tracker for Both
++ Fixed Autotracking For:
+	- 1000 AD:
+		- Chrono's Mom Allowance
+		- Truce Inn Sealed Chests (600 and 1000)
+		- Guardia Forest Sealed Chests (600 and 1000) and 1000 Tab
+		- Guardia Castle 1000: 
+			- Sealed Chests (600 and 1000)
+			- Yakra Chest
+			- Prism Shard
+			- Melchior's Refinements (Rainbow Shell and Sunstone)
+			- Standard Chests
+		- Chrono Trial Prison Items
+		- Heckran Cave Sealed Chest
+		- Medina's Elder Tabs
+		- Forest Ruins Sealed Chests
+		- West Cape Sparkle
+		- Received Tools from Carpenter's Wife 1000
+	- Last Village:
+		- North Cape Recruit
+		- Nu Shop Sparkle
+		
+v0.1.4
++ Hotfixed a few things broken in autotracking code
++ Fixed Autotracking For:
+	- 600 AD:
+		- Giant's Claw Chests
+	- 1000 AD:
+		- Northern Ruins Chests
+	- 2300 AD (Future):
+		- Trann Dome Sealed Door Tab
+		- Arris Dome Sealed Door Tab
+		- Johnny Race Score Tab
+		- Lab 32 Highway Chest (Race Log Chest)
+		- Keeper's Dome Tab
+		- Death Peak Tab and Chests
+		- Proto Dome Portal Sparkle
+		- Geno Dome Tabs and Chests
+
+V0.1.5
++ Objective Auto-tracking

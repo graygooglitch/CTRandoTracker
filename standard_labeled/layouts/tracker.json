@@ -15,6 +15,7 @@
 					{
 						"type": "itemgrid",
 						"h_alignment": "center",
+						"item_size":50,
 						"item_margin": "1,1",
 						"rows":
 						[
@@ -23,7 +24,7 @@
 							[ "gatekey", "dreamstone", "rubyknife", "rainbowshell", "tools", "racelog", "jerky"],
 							[ "pendant", "ctrigger", "moonstone", "sunstone", "jetsoftime", "jetsoftime2", "tomapop"]
 						]
-					},
+					}
 				]
 			}
 		]
@@ -44,12 +45,13 @@
 					{
 						"type": "itemgrid",
 						"h_alignment": "center",
+						"item_size":50,
 						"item_margin": "1,1",
 						"rows":
 						[
 							[ "yakraboss", "yakraxiiiboss", "dragontankboss","rusttyranoboss", "blacktyranoboss", "retiniteboss", "heckranboss", "zomborboss" ],
 							[ "mudimpboss", "sonofsunboss", "guardianboss", "rseriesboss", "masamuneboss", "nizbelboss", "zealboss" ],
-							[ "magusboss", "gigagaiaboss", "motherbrainboss", "lavosspawnboss","dalton", "golemboss", "twinboss" ]
+							[ "magusboss", "gigagaiaboss", "motherbrainboss", "lavosspawnboss","dalton", "golemboss", "twinboss" ],
 						]
 					}
 				]
@@ -61,7 +63,6 @@
 		"type": "array",
 		"orientation": "vertical",
 		"margin": "0,0",
-		"height": 145,
 		"content":
 		[
 			{
@@ -73,6 +74,7 @@
 					{
 						"type": "itemgrid",
 						"h_alignment": "center",
+						"item_size":50,
 						"item_margin": "1,1",
 						"rows":
 						[
@@ -84,55 +86,6 @@
 				]
 			}
 		]
-	},
-	"flag_grid":
-	{
-		"type": "array",
-		"orientation": "vertical",
-		"margin": "0,0",
-		"content":
-		[
-			{
-				"type": "array",
-				"orientation": "horizontal",
-				"margin": "0,0",
-				"content":
-				[
-					{
-						"type": "array",
-						"h_alignment": "center",
-						"item_margin": "1,1",
-						"content":
-						[
-              {
-                "type": "item",
-						    "item": "Flag_Chronosanity_off",
-						    "scale": 0.90,
-                "margin": "0,5"
-              }
-						]
-					}
-				]
-			}
-		]
-	},
-	"tracker_capture_item":
-	{
-		"type": "container",
-		"content":
-		{
-			"type": "itemgrid",
-			"h_alignment": "center",
-			"item_margin": "1,1",
-			"rows":
-			[
-							[ "crono", "lucca", "marle", "frog", "robo","ayla", "magus" ],
-							[ "benthilt", "bentsword", "masamune", "masamune2",  "heromedal", "seed", "bikekey", "yakrakey"],
-							[ "gatekey", "dreamstone", "rubyknife", "rainbowshell", "prismshard", "tools", "racelog", "dactyl"],
-							[ "pendant1", "ctrigger", "clone", "tomapop", "jerky", "moonstone", "sunstone", "jetsoftime"],
-							[ "jetsoftime2", "pendant2", "go"]
-			]	
-		}
 	},
 	"objective_grid":
 	{
@@ -151,7 +104,7 @@
 						"type": "itemgrid",
 						"v_alignment": "center",
 						"item_margin": "0,0",
-						"item_size": 125,
+						"item_size": 150,
 						"rows":
 						[
 							["obj1","obj2"],
@@ -209,7 +162,7 @@
 						"type": "itemgrid",
 						"v_alignment": "center",
 						"item_margin": "0,0",
-						"item_size": 125,
+						"item_size": 150,
 						"rows":
 						[
 							["objl1","objl2"],
@@ -272,7 +225,7 @@
 						[
 							[ "benthilt", "bentsword", "masamune",  "heromedal", "seed", "bikekey", "yakrakey","scale"],
 							[ "gatekey", "dreamstone", "rubyknife", "rainbowshell", "tools", "racelog", "jerky","bucket"],
-							[ "pendant", "clonectrigger", "moonstone", "sunstone", "jetsoftime", "jetsoftime2", "tomapop","omen"],
+							[ "pendant", "ctrigger", "moonstone", "sunstone", "jetsoftime", "jetsoftime2", "tomapop","omen"],
 							[ "crono","lucca", "marle", "frog","robo", "ayla", "magus", "go"]
 						]
 					}
@@ -280,72 +233,230 @@
 			}
 		]
 	},
-	"tracker_default":
+	"flag_grid":
 	{
-		"type": "dock",
-		"dock": "bottom",
+		"type": "array",
+		"orientation": "vertical",
+		"margin": "0,0",
 		"content":
-		[ 
+		[
 			{
-				"type": "group",
-				"header": "Items",
-				"dock": "top",
+				"type": "array",
+				"orientation": "horizontal",
+				"margin": "0,0",
 				"content":
-
 				[
 					{
-						"type": "layout",
-						"key": "shared_item_grid"
+						"type": "array",
+						"h_alignment": "right",
+						"item_margin": "1,1",
+						"content":
+						[
+              				{
+                				"type": "item",
+						    	"item": "Flag_Chronosanity_off",
+						    	"scale": 0.90,
+                				"margin": "0,5"
+              				}
+						]
 					}
 				]
-				
-
-			},
-			{
-				"type": "group",
-				"header": "Bosses",
-				"dock": "top",
-				"content":
-
-				[
-					{
-						"type": "layout",
-						"key": "boss_grid"
-					}
-				]
-				
-
-			},
-			{
-				"type": "group",
-				"header": "Events",
-				"dock": "top",
-				"content":
-
-				[
-					{
-						"type": "layout",
-						"key": "event_grid"
-					}
-				]
-				
-
-			},
-			{
-				"type": "group",
-				"header": "objectives",
-				"dock": "top",
-				"content":
-
-				[
-					{
-						"type": "layout",
-						"key": "objective_grid"
-					}
-				]
-				
-
 			}
 		]
+	},
+	
+	"tracker_capture_item":
+	{
+		"type": "container",
+		"content":
+		{
+			"type": "itemgrid",
+			"h_alignment": "center",
+			"item_margin": "1,1",
+			"rows":
+			[
+							[ "crono", "lucca", "marle", "frog", "robo","ayla", "magus" ],
+							[ "benthilt", "bentsword", "masamune", "grandleon",  "heromedal", "seed", "bikekey", "yakrakey"],
+							[ "gatekey", "dreamstone", "rubyknife", "rainbowshell", "prismshard", "tools", "racelog", "dactyl"],
+							[ "pendant1", "ctrigger", "clone", "tomapop", "jerky", "moonstone", "sunstone", "jetsoftime"],
+							[ "jetsoftime2", "pendant2", "go"]
+			]	
+		}
+	},
+	"tracker_default":
+	{
+		"type": "container",
+		"background": "#101010",
+		"content":
+		{
+			"type": "dock",
+			"dropshadow": true,
+			"content":
+			[
+				{
+					"type": "dock",
+					"dock": "bottom",
+					"content":
+					[ 
+						{
+							"type": "dock",
+							"dock": "left",
+							"content":
+							[
+								{
+									"type": "group",
+									"header": "Items",
+									"dock": "left",
+									"content":
+									{
+										"type": "layout",
+										"key": "shared_item_grid"
+									}
+								},
+								{
+									"type": "group",
+									"header": "Bosses",
+									"dock": "left",
+									"content":
+									{
+										"type": "layout",
+										"key": "boss_grid"
+									}
+								},
+								{
+									"type": "group",
+									"header": "Events",
+									"dock": "left",
+									"content":
+									{
+										"type": "layout",
+										"key": "event_grid"
+									}
+								}
+							
+							]
+						},
+						{
+							"type": "dock",
+							"dock": "right",
+							"content":
+							[
+								{
+									"type": "group",
+									"header": "Flags",
+									"content":
+									{
+										"type": "layout",
+										"key": "flag_grid"
+									}
+								}
+							]
+							
+						}
+					]
+				},
+				{
+					"type": "dock",
+					"dock": "right",
+					"content":
+					[
+								{
+									"type": "group",
+									"header": "Objectives",
+									"dock": "left",
+									"content":
+									{
+										"type": "layout",
+										"key": "objective_grid_labeled"
+									}
+								}
+					]
+				},
+				{
+					"type": "tabbed",
+					"tabs":
+					[
+						{
+							"title": "All Eras",
+							"content":
+							{
+								"type": "map",
+								"maps":
+								[
+									"All Eras"
+								]
+							}
+						},
+						
+						{
+							"title": "Prehistory",
+							"content":
+							{
+								"type": "map",
+								"maps":
+								[
+									"Prehistory"
+								]
+							}
+						},
+						{
+							"title": "Dark Ages",
+							"content":
+							{
+								"type": "map",
+								"maps":
+								[
+									"Dark Ages"
+								]
+							}
+						},
+						{
+							"title": "Middle Ages",
+							"content":
+							{
+								"type": "map",
+								"maps":
+								[
+									"Middle Ages"
+								]
+							}
+						},
+						{
+							"title": "Present",
+							"content":
+							{
+								"type": "map",
+								"maps":
+								[
+									"Present"
+								]
+							}
+						},
+						{
+							"title": "Future",
+							"content":
+							{
+								"type": "map",
+								"maps":
+								[
+									"Future"
+								]
+							}
+						},
+						{
+							"title": "Last Village / End of Time",
+							"content":
+							{
+								"type": "map",
+								"maps":
+								[
+									"Last Village"
+								]
+							}
+						}
+					]
+				}
+			]
+		}
 	}
 }

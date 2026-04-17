@@ -3164,6 +3164,2350 @@
         "codes":"obj8_71"
       }
     ]
+  },
+  {
+    "name": "Objective 1",
+    "type": "progressive",
+    "allow_disabled": false,
+    "initial_stage_idx": 0,
+    "loop": true,
+    "stages": [
+	    {
+        "img": "images/ObjectiveIconsLabeled/Blank.png",    
+        "codes":"objl1"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cathedral.png",    
+        "codes":"objl1_1"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Crono Trial.png",
+        "codes":"objl1_2"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Arris Dome.png",
+        "codes":"objl1_3"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Factory.png",
+        "codes":"objl1_4"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran Cave.png",
+        "codes":"objl1_5"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zenan Bridge.png",
+        "codes":"objl1_6"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Denadoro.png",
+        "codes":"objl1_7"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Reptite Lair.png",
+        "codes":"objl1_8"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Forge The Masamune.png",
+        "codes":"objl1_9"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Magus Tower.png",
+        "codes":"objl1_10"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Tyrano Lair.png",
+        "codes":"objl1_11"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mt Woe.png",
+        "codes":"objl1_12"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zeal's Palace.png",
+        "codes":"objl1_13"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ocean Palace.png",
+        "codes":"objl1_14"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Black Bird.png",
+        "codes":"objl1_15"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Epoch Fight.png",
+        "codes":"objl1_16"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Jerky Trade.png",
+        "codes":"objl1_17"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Sun Palace.png",
+        "codes":"objl1_18"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Charge Moonstone.png",
+        "codes":"objl1_19"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giant's Claw.png",
+        "codes":"objl1_20"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/King Trial.png",
+        "codes":"objl1_21"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cyrus.png",
+        "codes":"objl1_22"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie's Fort.png",
+        "codes":"objl1_23"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Desert.png",
+        "codes":"objl1_24"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Geno Dome.png",
+        "codes":"objl1_25"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Death Peak.png",
+        "codes":"objl1_26"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Spekkio.png",
+        "codes":"objl1_27"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Johnny.png",
+        "codes":"objl1_28"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Beast Cave.png",
+        "codes":"objl1_29"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant Spot.png",
+        "codes":"objl1_31"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant Spot.png",
+        "codes":"objl1_32"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant Spot.png",
+        "codes":"objl1_33"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn Spot.png",
+        "codes":"objl1_34"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Atropos XR.png",
+        "codes":"objl1_35"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton.png",
+        "codes":"objl1_36"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton Plus.png",
+        "codes":"objl1_37"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn.png",
+        "codes":"objl1_38"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea.png",
+        "codes":"objl1_39"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea Plus.png",
+        "codes":"objl1_40"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Gato.png",
+        "codes":"objl1_41"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant.png",
+        "codes":"objl1_42"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Golem.png",
+        "codes":"objl1_43"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Boss Golem.png",
+        "codes":"objl1_44"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran.png",
+        "codes":"objl1_45"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Krawlie.png",
+        "codes":"objl1_46"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Lavos Spawn.png",
+        "codes":"objl1_47"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mammon Machine.png",
+        "codes":"objl1_48"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/North Cape Magus.png",
+        "codes":"objl1_49"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Masa&Mune.png",
+        "codes":"objl1_50"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant.png",
+        "codes":"objl1_51"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mud Imp and Beasts.png",
+        "codes":"objl1_52"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel.png",
+        "codes":"objl1_53"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel 2.png",
+        "codes":"objl1_54"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Retinite.png",
+        "codes":"objl1_55"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/R Series.png",
+        "codes":"objl1_56"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Rust Tyrano.png",
+        "codes":"objl1_57"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Slash.png",
+        "codes":"objl1_58"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Super Slash.png",
+        "codes":"objl1_59"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Son of Sun.png",
+        "codes":"objl1_60"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant.png",
+        "codes":"objl1_61"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra.png",
+        "codes":"objl1_62"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra XIII.png",
+        "codes":"objl1_63"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zombor.png",
+        "codes":"objl1_64"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mother Brain.png",
+        "codes":"objl1_65"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dragon Tank.png",
+        "codes":"objl1_66"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Gaia.png",
+        "codes":"objl1_67"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Guardian.png",
+        "codes":"objl1_68"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie Trio.png",
+        "codes":"objl1_69"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Disabled.png",
+        "codes":"objl1_70"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Complete.png",
+        "codes":"objl1_71"
+      }
+    ]
+  },
+  {
+    "name": "Objective 2",
+    "type": "progressive",
+    "allow_disabled": false,
+    "initial_stage_idx": 0,
+    "loop": true,
+    "stages": [
+	    {
+        "img": "images/ObjectiveIconsLabeled/Blank.png",    
+        "codes":"objl2"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cathedral.png",    
+        "codes":"objl2_1"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Crono Trial.png",
+        "codes":"objl2_2"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Arris Dome.png",
+        "codes":"objl2_3"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Factory.png",
+        "codes":"objl2_4"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran Cave.png",
+        "codes":"objl2_5"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zenan Bridge.png",
+        "codes":"objl2_6"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Denadoro.png",
+        "codes":"objl2_7"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Reptite Lair.png",
+        "codes":"objl2_8"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Forge The Masamune.png",
+        "codes":"objl2_9"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Magus Tower.png",
+        "codes":"objl2_10"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Tyrano Lair.png",
+        "codes":"objl2_11"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mt Woe.png",
+        "codes":"objl2_12"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zeal's Palace.png",
+        "codes":"objl2_13"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ocean Palace.png",
+        "codes":"objl2_14"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Black Bird.png",
+        "codes":"objl2_15"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Epoch Fight.png",
+        "codes":"objl2_16"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Jerky Trade.png",
+        "codes":"objl2_17"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Sun Palace.png",
+        "codes":"objl2_18"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Charge Moonstone.png",
+        "codes":"objl2_19"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giant's Claw.png",
+        "codes":"objl2_20"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/King Trial.png",
+        "codes":"objl2_21"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cyrus.png",
+        "codes":"objl2_22"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie's Fort.png",
+        "codes":"objl2_23"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Desert.png",
+        "codes":"objl2_24"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Geno Dome.png",
+        "codes":"objl2_25"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Death Peak.png",
+        "codes":"objl2_26"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Spekkio.png",
+        "codes":"objl2_27"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Johnny.png",
+        "codes":"objl2_28"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Beast Cave.png",
+        "codes":"objl2_29"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant Spot.png",
+        "codes":"objl2_31"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant Spot.png",
+        "codes":"objl2_32"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant Spot.png",
+        "codes":"objl2_33"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn Spot.png",
+        "codes":"objl2_34"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Atropos XR.png",
+        "codes":"objl2_35"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton.png",
+        "codes":"objl2_36"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton Plus.png",
+        "codes":"objl2_37"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn.png",
+        "codes":"objl2_38"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea.png",
+        "codes":"objl2_39"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea Plus.png",
+        "codes":"objl2_40"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Gato.png",
+        "codes":"objl2_41"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant.png",
+        "codes":"objl2_42"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Golem.png",
+        "codes":"objl2_43"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Boss Golem.png",
+        "codes":"objl2_44"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran.png",
+        "codes":"objl2_45"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Krawlie.png",
+        "codes":"objl2_46"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Lavos Spawn.png",
+        "codes":"objl2_47"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mammon Machine.png",
+        "codes":"objl2_48"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/North Cape Magus.png",
+        "codes":"objl2_49"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Masa&Mune.png",
+        "codes":"objl2_50"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant.png",
+        "codes":"objl2_51"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mud Imp and Beasts.png",
+        "codes":"objl2_52"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel.png",
+        "codes":"objl2_53"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel 2.png",
+        "codes":"objl2_54"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Retinite.png",
+        "codes":"objl2_55"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/R Series.png",
+        "codes":"objl2_56"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Rust Tyrano.png",
+        "codes":"objl2_57"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Slash.png",
+        "codes":"objl2_58"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Super Slash.png",
+        "codes":"objl2_59"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Son of Sun.png",
+        "codes":"objl2_60"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant.png",
+        "codes":"objl2_61"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra.png",
+        "codes":"objl2_62"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra XIII.png",
+        "codes":"objl2_63"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zombor.png",
+        "codes":"objl2_64"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mother Brain.png",
+        "codes":"objl2_65"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dragon Tank.png",
+        "codes":"objl2_66"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Gaia.png",
+        "codes":"objl2_67"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Guardian.png",
+        "codes":"objl2_68"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie Trio.png",
+        "codes":"objl2_69"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Disabled.png",
+        "codes":"objl2_70"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Complete.png",
+        "codes":"objl2_71"
+      }
+    ]
+  },
+  {
+    "name": "Objective 3",
+    "type": "progressive",
+    "allow_disabled": false,
+    "initial_stage_idx": 0,
+    "loop": true,
+    "stages": [
+	    {
+        "img": "images/ObjectiveIconsLabeled/Blank.png",    
+        "codes":"objl3"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cathedral.png",    
+        "codes":"objl3_1"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Crono Trial.png",
+        "codes":"objl3_2"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Arris Dome.png",
+        "codes":"objl3_3"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Factory.png",
+        "codes":"objl3_4"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran Cave.png",
+        "codes":"objl3_5"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zenan Bridge.png",
+        "codes":"objl3_6"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Denadoro.png",
+        "codes":"objl3_7"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Reptite Lair.png",
+        "codes":"objl3_8"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Forge The Masamune.png",
+        "codes":"objl3_9"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Magus Tower.png",
+        "codes":"objl3_10"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Tyrano Lair.png",
+        "codes":"objl3_11"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mt Woe.png",
+        "codes":"objl3_12"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zeal's Palace.png",
+        "codes":"objl3_13"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ocean Palace.png",
+        "codes":"objl3_14"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Black Bird.png",
+        "codes":"objl3_15"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Epoch Fight.png",
+        "codes":"objl3_16"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Jerky Trade.png",
+        "codes":"objl3_17"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Sun Palace.png",
+        "codes":"objl3_18"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Charge Moonstone.png",
+        "codes":"objl3_19"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giant's Claw.png",
+        "codes":"objl3_20"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/King Trial.png",
+        "codes":"objl3_21"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cyrus.png",
+        "codes":"objl3_22"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie's Fort.png",
+        "codes":"objl3_23"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Desert.png",
+        "codes":"objl3_24"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Geno Dome.png",
+        "codes":"objl3_25"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Death Peak.png",
+        "codes":"objl3_26"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Spekkio.png",
+        "codes":"objl3_27"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Johnny.png",
+        "codes":"objl3_28"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Beast Cave.png",
+        "codes":"objl3_29"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant Spot.png",
+        "codes":"objl3_31"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant Spot.png",
+        "codes":"objl3_32"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant Spot.png",
+        "codes":"objl3_33"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn Spot.png",
+        "codes":"objl3_34"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Atropos XR.png",
+        "codes":"objl3_35"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton.png",
+        "codes":"objl3_36"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton Plus.png",
+        "codes":"objl3_37"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn.png",
+        "codes":"objl3_38"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea.png",
+        "codes":"objl3_39"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea Plus.png",
+        "codes":"objl3_40"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Gato.png",
+        "codes":"objl3_41"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant.png",
+        "codes":"objl3_42"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Golem.png",
+        "codes":"objl3_43"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Boss Golem.png",
+        "codes":"objl3_44"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran.png",
+        "codes":"objl3_45"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Krawlie.png",
+        "codes":"objl3_46"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Lavos Spawn.png",
+        "codes":"objl3_47"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mammon Machine.png",
+        "codes":"objl3_48"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/North Cape Magus.png",
+        "codes":"objl3_49"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Masa&Mune.png",
+        "codes":"objl3_50"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant.png",
+        "codes":"objl3_51"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mud Imp and Beasts.png",
+        "codes":"objl3_52"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel.png",
+        "codes":"objl3_53"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel 2.png",
+        "codes":"objl3_54"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Retinite.png",
+        "codes":"objl3_55"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/R Series.png",
+        "codes":"objl3_56"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Rust Tyrano.png",
+        "codes":"objl3_57"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Slash.png",
+        "codes":"objl3_58"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Super Slash.png",
+        "codes":"objl3_59"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Son of Sun.png",
+        "codes":"objl3_60"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant.png",
+        "codes":"objl3_61"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra.png",
+        "codes":"objl3_62"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra XIII.png",
+        "codes":"objl3_63"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zombor.png",
+        "codes":"objl3_64"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mother Brain.png",
+        "codes":"objl3_65"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dragon Tank.png",
+        "codes":"objl3_66"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Gaia.png",
+        "codes":"objl3_67"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Guardian.png",
+        "codes":"objl3_68"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie Trio.png",
+        "codes":"objl3_69"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Disabled.png",
+        "codes":"objl3_70"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Complete.png",
+        "codes":"objl3_71"
+      }
+    ]
+  },
+  {
+    "name": "Objective 4",
+    "type": "progressive",
+    "allow_disabled": false,
+    "initial_stage_idx": 0,
+    "loop": true,
+    "stages": [
+	    {
+        "img": "images/ObjectiveIconsLabeled/Blank.png",    
+        "codes":"objl4"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cathedral.png",    
+        "codes":"objl4_1"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Crono Trial.png",
+        "codes":"objl4_2"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Arris Dome.png",
+        "codes":"objl4_3"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Factory.png",
+        "codes":"objl4_4"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran Cave.png",
+        "codes":"objl4_5"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zenan Bridge.png",
+        "codes":"objl4_6"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Denadoro.png",
+        "codes":"objl4_7"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Reptite Lair.png",
+        "codes":"objl4_8"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Forge The Masamune.png",
+        "codes":"objl4_9"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Magus Tower.png",
+        "codes":"objl4_10"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Tyrano Lair.png",
+        "codes":"objl4_11"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mt Woe.png",
+        "codes":"objl4_12"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zeal's Palace.png",
+        "codes":"objl4_13"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ocean Palace.png",
+        "codes":"objl4_14"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Black Bird.png",
+        "codes":"objl4_15"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Epoch Fight.png",
+        "codes":"objl4_16"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Jerky Trade.png",
+        "codes":"objl4_17"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Sun Palace.png",
+        "codes":"objl4_18"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Charge Moonstone.png",
+        "codes":"objl4_19"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giant's Claw.png",
+        "codes":"objl4_20"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/King Trial.png",
+        "codes":"objl4_21"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cyrus.png",
+        "codes":"objl4_22"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie's Fort.png",
+        "codes":"objl4_23"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Desert.png",
+        "codes":"objl4_24"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Geno Dome.png",
+        "codes":"objl4_25"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Death Peak.png",
+        "codes":"objl4_26"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Spekkio.png",
+        "codes":"objl4_27"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Johnny.png",
+        "codes":"objl4_28"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Beast Cave.png",
+        "codes":"objl4_29"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant Spot.png",
+        "codes":"objl4_31"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant Spot.png",
+        "codes":"objl4_32"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant Spot.png",
+        "codes":"objl4_33"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn Spot.png",
+        "codes":"objl4_34"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Atropos XR.png",
+        "codes":"objl4_35"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton.png",
+        "codes":"objl4_36"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton Plus.png",
+        "codes":"objl4_37"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn.png",
+        "codes":"objl4_38"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea.png",
+        "codes":"objl4_39"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea Plus.png",
+        "codes":"objl4_40"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Gato.png",
+        "codes":"objl4_41"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant.png",
+        "codes":"objl4_42"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Golem.png",
+        "codes":"objl4_43"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Boss Golem.png",
+        "codes":"objl4_44"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran.png",
+        "codes":"objl4_45"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Krawlie.png",
+        "codes":"objl4_46"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Lavos Spawn.png",
+        "codes":"objl4_47"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mammon Machine.png",
+        "codes":"objl4_48"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/North Cape Magus.png",
+        "codes":"objl4_49"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Masa&Mune.png",
+        "codes":"objl4_50"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant.png",
+        "codes":"objl4_51"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mud Imp and Beasts.png",
+        "codes":"objl4_52"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel.png",
+        "codes":"objl4_53"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel 2.png",
+        "codes":"objl4_54"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Retinite.png",
+        "codes":"objl4_55"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/R Series.png",
+        "codes":"objl4_56"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Rust Tyrano.png",
+        "codes":"objl4_57"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Slash.png",
+        "codes":"objl4_58"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Super Slash.png",
+        "codes":"objl4_59"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Son of Sun.png",
+        "codes":"objl4_60"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant.png",
+        "codes":"objl4_61"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra.png",
+        "codes":"objl4_62"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra XIII.png",
+        "codes":"objl4_63"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zombor.png",
+        "codes":"objl4_64"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mother Brain.png",
+        "codes":"objl4_65"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dragon Tank.png",
+        "codes":"objl4_66"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Gaia.png",
+        "codes":"objl4_67"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Guardian.png",
+        "codes":"objl4_68"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie Trio.png",
+        "codes":"objl4_69"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Disabled.png",
+        "codes":"objl4_70"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Complete.png",
+        "codes":"objl4_71"
+      }
+    ]
+  },
+  {
+    "name": "Objective 5",
+    "type": "progressive",
+    "allow_disabled": false,
+    "initial_stage_idx": 0,
+    "loop": true,
+    "stages": [
+	    {
+        "img": "images/ObjectiveIconsLabeled/Blank.png",    
+        "codes":"objl5"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cathedral.png",    
+        "codes":"objl5_1"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Crono Trial.png",
+        "codes":"objl5_2"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Arris Dome.png",
+        "codes":"objl5_3"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Factory.png",
+        "codes":"objl5_4"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran Cave.png",
+        "codes":"objl5_5"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zenan Bridge.png",
+        "codes":"objl5_6"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Denadoro.png",
+        "codes":"objl5_7"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Reptite Lair.png",
+        "codes":"objl5_8"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Forge The Masamune.png",
+        "codes":"objl5_9"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Magus Tower.png",
+        "codes":"objl5_10"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Tyrano Lair.png",
+        "codes":"objl5_11"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mt Woe.png",
+        "codes":"objl5_12"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zeal's Palace.png",
+        "codes":"objl5_13"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ocean Palace.png",
+        "codes":"objl5_14"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Black Bird.png",
+        "codes":"objl5_15"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Epoch Fight.png",
+        "codes":"objl5_16"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Jerky Trade.png",
+        "codes":"objl5_17"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Sun Palace.png",
+        "codes":"objl5_18"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Charge Moonstone.png",
+        "codes":"objl5_19"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giant's Claw.png",
+        "codes":"objl5_20"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/King Trial.png",
+        "codes":"objl5_21"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cyrus.png",
+        "codes":"objl5_22"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie's Fort.png",
+        "codes":"objl5_23"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Desert.png",
+        "codes":"objl5_24"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Geno Dome.png",
+        "codes":"objl5_25"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Death Peak.png",
+        "codes":"objl5_26"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Spekkio.png",
+        "codes":"objl5_27"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Johnny.png",
+        "codes":"objl5_28"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Beast Cave.png",
+        "codes":"objl5_29"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant Spot.png",
+        "codes":"objl5_31"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant Spot.png",
+        "codes":"objl5_32"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant Spot.png",
+        "codes":"objl5_33"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn Spot.png",
+        "codes":"objl5_34"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Atropos XR.png",
+        "codes":"objl5_35"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton.png",
+        "codes":"objl5_36"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton Plus.png",
+        "codes":"objl5_37"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn.png",
+        "codes":"objl5_38"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea.png",
+        "codes":"objl5_39"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea Plus.png",
+        "codes":"objl5_40"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Gato.png",
+        "codes":"objl5_41"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant.png",
+        "codes":"objl5_42"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Golem.png",
+        "codes":"objl5_43"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Boss Golem.png",
+        "codes":"objl5_44"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran.png",
+        "codes":"objl5_45"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Krawlie.png",
+        "codes":"objl5_46"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Lavos Spawn.png",
+        "codes":"objl5_47"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mammon Machine.png",
+        "codes":"objl5_48"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/North Cape Magus.png",
+        "codes":"objl5_49"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Masa&Mune.png",
+        "codes":"objl5_50"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant.png",
+        "codes":"objl5_51"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mud Imp and Beasts.png",
+        "codes":"objl5_52"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel.png",
+        "codes":"objl5_53"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel 2.png",
+        "codes":"objl5_54"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Retinite.png",
+        "codes":"objl5_55"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/R Series.png",
+        "codes":"objl5_56"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Rust Tyrano.png",
+        "codes":"objl5_57"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Slash.png",
+        "codes":"objl5_58"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Super Slash.png",
+        "codes":"objl5_59"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Son of Sun.png",
+        "codes":"objl5_60"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant.png",
+        "codes":"objl5_61"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra.png",
+        "codes":"objl5_62"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra XIII.png",
+        "codes":"objl5_63"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zombor.png",
+        "codes":"objl5_64"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mother Brain.png",
+        "codes":"objl5_65"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dragon Tank.png",
+        "codes":"objl5_66"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Gaia.png",
+        "codes":"objl5_67"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Guardian.png",
+        "codes":"objl5_68"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie Trio.png",
+        "codes":"objl5_69"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Disabled.png",
+        "codes":"objl5_70"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Complete.png",
+        "codes":"objl5_71"
+      }
+    ]
+  },
+  {
+    "name": "Objective 6",
+    "type": "progressive",
+    "allow_disabled": false,
+    "initial_stage_idx": 0,
+    "loop": true,
+    "stages": [
+	    {
+        "img": "images/ObjectiveIconsLabeled/Blank.png",    
+        "codes":"objl6"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cathedral.png",    
+        "codes":"objl6_1"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Crono Trial.png",
+        "codes":"objl6_2"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Arris Dome.png",
+        "codes":"objl6_3"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Factory.png",
+        "codes":"objl6_4"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran Cave.png",
+        "codes":"objl6_5"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zenan Bridge.png",
+        "codes":"objl6_6"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Denadoro.png",
+        "codes":"objl6_7"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Reptite Lair.png",
+        "codes":"objl6_8"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Forge The Masamune.png",
+        "codes":"objl6_9"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Magus Tower.png",
+        "codes":"objl6_10"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Tyrano Lair.png",
+        "codes":"objl6_11"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mt Woe.png",
+        "codes":"objl6_12"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zeal's Palace.png",
+        "codes":"objl6_13"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ocean Palace.png",
+        "codes":"objl6_14"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Black Bird.png",
+        "codes":"objl6_15"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Epoch Fight.png",
+        "codes":"objl6_16"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Jerky Trade.png",
+        "codes":"objl6_17"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Sun Palace.png",
+        "codes":"objl6_18"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Charge Moonstone.png",
+        "codes":"objl6_19"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giant's Claw.png",
+        "codes":"objl6_20"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/King Trial.png",
+        "codes":"objl6_21"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cyrus.png",
+        "codes":"objl6_22"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie's Fort.png",
+        "codes":"objl6_23"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Desert.png",
+        "codes":"objl6_24"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Geno Dome.png",
+        "codes":"objl6_25"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Death Peak.png",
+        "codes":"objl6_26"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Spekkio.png",
+        "codes":"objl6_27"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Johnny.png",
+        "codes":"objl6_28"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Beast Cave.png",
+        "codes":"objl6_29"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant Spot.png",
+        "codes":"objl6_31"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant Spot.png",
+        "codes":"objl6_32"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant Spot.png",
+        "codes":"objl6_33"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn Spot.png",
+        "codes":"objl6_34"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Atropos XR.png",
+        "codes":"objl6_35"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton.png",
+        "codes":"objl6_36"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton Plus.png",
+        "codes":"objl6_37"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn.png",
+        "codes":"objl6_38"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea.png",
+        "codes":"objl6_39"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea Plus.png",
+        "codes":"objl6_40"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Gato.png",
+        "codes":"objl6_41"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant.png",
+        "codes":"objl6_42"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Golem.png",
+        "codes":"objl6_43"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Boss Golem.png",
+        "codes":"objl6_44"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran.png",
+        "codes":"objl6_45"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Krawlie.png",
+        "codes":"objl6_46"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Lavos Spawn.png",
+        "codes":"objl6_47"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mammon Machine.png",
+        "codes":"objl6_48"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/North Cape Magus.png",
+        "codes":"objl6_49"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Masa&Mune.png",
+        "codes":"objl6_50"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant.png",
+        "codes":"objl6_51"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mud Imp and Beasts.png",
+        "codes":"objl6_52"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel.png",
+        "codes":"objl6_53"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel 2.png",
+        "codes":"objl6_54"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Retinite.png",
+        "codes":"objl6_55"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/R Series.png",
+        "codes":"objl6_56"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Rust Tyrano.png",
+        "codes":"objl6_57"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Slash.png",
+        "codes":"objl6_58"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Super Slash.png",
+        "codes":"objl6_59"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Son of Sun.png",
+        "codes":"objl6_60"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant.png",
+        "codes":"objl6_61"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra.png",
+        "codes":"objl6_62"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra XIII.png",
+        "codes":"objl6_63"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zombor.png",
+        "codes":"objl6_64"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mother Brain.png",
+        "codes":"objl6_65"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dragon Tank.png",
+        "codes":"objl6_66"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Gaia.png",
+        "codes":"objl6_67"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Guardian.png",
+        "codes":"objl6_68"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie Trio.png",
+        "codes":"objl6_69"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Disabled.png",
+        "codes":"objl6_70"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Complete.png",
+        "codes":"objl6_71"
+      }
+    ]
+  },
+  {
+    "name": "Objective 7",
+    "type": "progressive",
+    "allow_disabled": false,
+    "initial_stage_idx": 0,
+    "loop": true,
+    "stages": [
+	    {
+        "img": "images/ObjectiveIconsLabeled/Blank.png",    
+        "codes":"objl7"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cathedral.png",    
+        "codes":"objl7_1"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Crono Trial.png",
+        "codes":"objl7_2"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Arris Dome.png",
+        "codes":"objl7_3"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Factory.png",
+        "codes":"objl7_4"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran Cave.png",
+        "codes":"objl7_5"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zenan Bridge.png",
+        "codes":"objl7_6"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Denadoro.png",
+        "codes":"objl7_7"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Reptite Lair.png",
+        "codes":"objl7_8"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Forge The Masamune.png",
+        "codes":"objl7_9"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Magus Tower.png",
+        "codes":"objl7_10"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Tyrano Lair.png",
+        "codes":"objl7_11"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mt Woe.png",
+        "codes":"objl7_12"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zeal's Palace.png",
+        "codes":"objl7_13"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ocean Palace.png",
+        "codes":"objl7_14"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Black Bird.png",
+        "codes":"objl7_15"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Epoch Fight.png",
+        "codes":"objl7_16"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Jerky Trade.png",
+        "codes":"objl7_17"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Sun Palace.png",
+        "codes":"objl7_18"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Charge Moonstone.png",
+        "codes":"objl7_19"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giant's Claw.png",
+        "codes":"objl7_20"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/King Trial.png",
+        "codes":"objl7_21"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cyrus.png",
+        "codes":"objl7_22"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie's Fort.png",
+        "codes":"objl7_23"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Desert.png",
+        "codes":"objl7_24"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Geno Dome.png",
+        "codes":"objl7_25"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Death Peak.png",
+        "codes":"objl7_26"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Spekkio.png",
+        "codes":"objl7_27"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Johnny.png",
+        "codes":"objl7_28"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Beast Cave.png",
+        "codes":"objl7_29"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant Spot.png",
+        "codes":"objl7_31"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant Spot.png",
+        "codes":"objl7_32"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant Spot.png",
+        "codes":"objl7_33"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn Spot.png",
+        "codes":"objl7_34"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Atropos XR.png",
+        "codes":"objl7_35"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton.png",
+        "codes":"objl7_36"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton Plus.png",
+        "codes":"objl7_37"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn.png",
+        "codes":"objl7_38"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea.png",
+        "codes":"objl7_39"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea Plus.png",
+        "codes":"objl7_40"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Gato.png",
+        "codes":"objl7_41"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant.png",
+        "codes":"objl7_42"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Golem.png",
+        "codes":"objl7_43"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Boss Golem.png",
+        "codes":"objl7_44"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran.png",
+        "codes":"objl7_45"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Krawlie.png",
+        "codes":"objl7_46"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Lavos Spawn.png",
+        "codes":"objl7_47"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mammon Machine.png",
+        "codes":"objl7_48"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/North Cape Magus.png",
+        "codes":"objl7_49"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Masa&Mune.png",
+        "codes":"objl7_50"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant.png",
+        "codes":"objl7_51"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mud Imp and Beasts.png",
+        "codes":"objl7_52"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel.png",
+        "codes":"objl7_53"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel 2.png",
+        "codes":"objl7_54"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Retinite.png",
+        "codes":"objl7_55"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/R Series.png",
+        "codes":"objl7_56"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Rust Tyrano.png",
+        "codes":"objl7_57"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Slash.png",
+        "codes":"objl7_58"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Super Slash.png",
+        "codes":"objl7_59"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Son of Sun.png",
+        "codes":"objl7_60"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant.png",
+        "codes":"objl7_61"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra.png",
+        "codes":"objl7_62"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra XIII.png",
+        "codes":"objl7_63"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zombor.png",
+        "codes":"objl7_64"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mother Brain.png",
+        "codes":"objl7_65"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dragon Tank.png",
+        "codes":"objl7_66"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Gaia.png",
+        "codes":"objl7_67"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Guardian.png",
+        "codes":"objl7_68"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie Trio.png",
+        "codes":"objl7_69"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Disabled.png",
+        "codes":"objl7_70"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Complete.png",
+        "codes":"objl7_71"
+      }
+    ]
+  },
+  {
+    "name": "Objective 8",
+    "type": "progressive",
+    "allow_disabled": false,
+    "initial_stage_idx": 0,
+    "loop": true,
+    "stages": [
+	    {
+        "img": "images/ObjectiveIconsLabeled/Blank.png",    
+        "codes":"objl8"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cathedral.png",    
+        "codes":"objl8_1"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Crono Trial.png",
+        "codes":"objl8_2"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Arris Dome.png",
+        "codes":"objl8_3"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Factory.png",
+        "codes":"objl8_4"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran Cave.png",
+        "codes":"objl8_5"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zenan Bridge.png",
+        "codes":"objl8_6"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Denadoro.png",
+        "codes":"objl8_7"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Reptite Lair.png",
+        "codes":"objl8_8"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Forge The Masamune.png",
+        "codes":"objl8_9"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Magus Tower.png",
+        "codes":"objl8_10"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Tyrano Lair.png",
+        "codes":"objl8_11"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mt Woe.png",
+        "codes":"objl8_12"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zeal's Palace.png",
+        "codes":"objl8_13"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ocean Palace.png",
+        "codes":"objl8_14"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Black Bird.png",
+        "codes":"objl8_15"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Epoch Fight.png",
+        "codes":"objl8_16"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Jerky Trade.png",
+        "codes":"objl8_17"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Sun Palace.png",
+        "codes":"objl8_18"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Charge Moonstone.png",
+        "codes":"objl8_19"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giant's Claw.png",
+        "codes":"objl8_20"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/King Trial.png",
+        "codes":"objl8_21"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Cyrus.png",
+        "codes":"objl8_22"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie's Fort.png",
+        "codes":"objl8_23"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Desert.png",
+        "codes":"objl8_24"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Geno Dome.png",
+        "codes":"objl8_25"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Death Peak.png",
+        "codes":"objl8_26"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Spekkio.png",
+        "codes":"objl8_27"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Johnny.png",
+        "codes":"objl8_28"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Beast Cave.png",
+        "codes":"objl8_29"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant Spot.png",
+        "codes":"objl8_31"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant Spot.png",
+        "codes":"objl8_32"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant Spot.png",
+        "codes":"objl8_33"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn Spot.png",
+        "codes":"objl8_34"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Atropos XR.png",
+        "codes":"objl8_35"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton.png",
+        "codes":"objl8_36"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dalton Plus.png",
+        "codes":"objl8_37"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Elder Spawn.png",
+        "codes":"objl8_38"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea.png",
+        "codes":"objl8_39"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Flea Plus.png",
+        "codes":"objl8_40"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Gato.png",
+        "codes":"objl8_41"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Mutant.png",
+        "codes":"objl8_42"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Golem.png",
+        "codes":"objl8_43"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Boss Golem.png",
+        "codes":"objl8_44"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Heckran.png",
+        "codes":"objl8_45"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Krawlie.png",
+        "codes":"objl8_46"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Lavos Spawn.png",
+        "codes":"objl8_47"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mammon Machine.png",
+        "codes":"objl8_48"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/North Cape Magus.png",
+        "codes":"objl8_49"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Masa&Mune.png",
+        "codes":"objl8_50"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mega Mutant.png",
+        "codes":"objl8_51"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mud Imp and Beasts.png",
+        "codes":"objl8_52"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel.png",
+        "codes":"objl8_53"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Nizbel 2.png",
+        "codes":"objl8_54"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Retinite.png",
+        "codes":"objl8_55"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/R Series.png",
+        "codes":"objl8_56"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Rust Tyrano.png",
+        "codes":"objl8_57"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Slash.png",
+        "codes":"objl8_58"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Super Slash.png",
+        "codes":"objl8_59"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Son of Sun.png",
+        "codes":"objl8_60"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Terra Mutant.png",
+        "codes":"objl8_61"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra.png",
+        "codes":"objl8_62"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Yakra XIII.png",
+        "codes":"objl8_63"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Zombor.png",
+        "codes":"objl8_64"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Mother Brain.png",
+        "codes":"objl8_65"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Dragon Tank.png",
+        "codes":"objl8_66"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Giga Gaia.png",
+        "codes":"objl8_67"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Guardian.png",
+        "codes":"objl8_68"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Ozzie Trio.png",
+        "codes":"objl8_69"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Disabled.png",
+        "codes":"objl8_70"
+      },
+      {
+        "img": "images/ObjectiveIconsLabeled/Complete.png",
+        "codes":"objl8_71"
+      }
+    ]
   }
   
 ]

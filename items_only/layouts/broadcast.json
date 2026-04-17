@@ -2,7 +2,6 @@
 	"tracker_broadcast":
 	{
 		"type": "array",
-		"background": "#555594",
 		"width": 510,
 		"height": 515,
 		"dropshadow": true,
