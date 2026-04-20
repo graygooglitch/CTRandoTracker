@@ -316,7 +316,9 @@ function loadObjectives(segment)
     if obj_sum ~= 0 then
       for i=1,8 do
         local trackerItem = Tracker:FindObjectForCode("obj"..i)
-          trackerItem.CurrentStage = objective_parse[i]+1
+        local trackerItemLabeled = Tracker:FindObjectForCode("objl"..i)
+        trackerItem.CurrentStage = objective_parse[i]+1
+        trackerItemLabeled.CurrentStage = objective_parse[i]+1
       end
     else
       printDebug("Objective data read failed!")
@@ -424,8 +426,10 @@ function updateItemsFromInventory(segment)
   for k,v in pairs(objective_checks) do
     if mapId ~= 0x0000 and mapId ~= 0x01B1 then
       local trackerItem = Tracker:FindObjectForCode("obj"..k)
+      local trackekItemLabeled = Tracker:FindObjectForCode("objl"..k)
       if v == false then
         trackerItem.CurrentStage = 70
+        trackekItemLabeled.CurrentStage = 70
       end
     end
   end
